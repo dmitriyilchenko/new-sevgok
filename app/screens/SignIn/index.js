@@ -59,7 +59,7 @@ class SignIn extends Component {
 
     return (
       <View>
-        <Text>{i18n.t('sign_in.title')}</Text>
+        <Text style={styles.title}>{i18n.t('sign_in.title')}</Text>
         <TextInput
           value={email}
           style={styles.input}
@@ -73,7 +73,7 @@ class SignIn extends Component {
           loading={loading}
           onPress={() => this.onLoginPress()}
           label={i18n.t('sign_in.confirm_button')}
-          backgroundColor={valid ? 'green' : 'red'}
+          backgroundColor={valid ? '#4CAF50' : '#FF1744'}
         />
       </View>
     );
@@ -87,7 +87,7 @@ class SignIn extends Component {
         <TouchableOpacity onPress={() => this.setState({ step: 0, valid: true })}>
           <Text>{i18n.t('sign_up.back')}</Text>
         </TouchableOpacity>
-        <Text>{i18n.t('sign_up.title')}</Text>
+        <Text style={styles.title}>{i18n.t('sign_up.title')}</Text>
         <TextInput
           value={fullname}
           style={styles.input}
@@ -108,7 +108,7 @@ class SignIn extends Component {
           loading={loading}
           onPress={() => this.onSignUpPress()}
           label={i18n.t('sign_up.confirm_button')}
-          backgroundColor={valid ? 'green' : 'red'}
+          backgroundColor={valid ? '#4CAF50' : '#FF1744'}
         />
       </View>
     );

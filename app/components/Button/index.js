@@ -22,7 +22,7 @@ class Button extends Component {
         style={[styles.container, customContainerStyles]}
         onPress={() => this.props.onPress()}
       >
-        {loading ? <ActivityIndicator /> : <Text>{label}</Text>}
+        {loading ? <ActivityIndicator color='white' /> : <Text style={styles.label}>{label}</Text>}
       </TouchableOpacity>
     );
   }
@@ -36,5 +36,5 @@ Button.defaultProps = {
   loading: false,
   disabled: false,
   onPress: () => null,
-  backgroundColor: 'red',
+  backgroundColor: '#4CAF50',
 };

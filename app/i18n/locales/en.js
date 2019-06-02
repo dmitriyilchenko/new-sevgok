@@ -1,7 +1,7 @@
 export default {
-  welcome: 'Welcome',
+  welcome: 'Hi',
   sign_in: {
-    title: 'Please enter your email',
+    title: 'Enter your email',
     confirm_button: 'Login'
   },
   sign_up: {

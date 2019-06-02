@@ -8,11 +8,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  title: {
+    marginBottom: 20
+  },
   input: {
-    height: 30,
+    padding: 5,
+    height: 50,
     width: 200,
     borderWidth: 1,
-    padding: 5,
-    marginVertical: 15,
+    marginBottom: 15,
+    borderColor: '#607D8B',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });

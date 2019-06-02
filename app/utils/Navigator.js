@@ -118,6 +118,10 @@ class Navigator {
               options: {
                 bottomTab: {
                   text: 'Create Order',
+                  textColor: 'white',
+                  iconColor: 'white',
+                  selectedIconColor: 'black',
+                  icon: require('../resourses/images/box.png'),
                 }
               }
             }
@@ -127,6 +131,10 @@ class Navigator {
               options: {
                 bottomTab: {
                   text: 'Find Order',
+                  textColor: 'white',
+                  iconColor: 'white',
+                  selectedIconColor: 'black',
+                  icon: require('../resourses/images/search.png'),
                 }
               }
             }
@@ -136,6 +144,10 @@ class Navigator {
               options: {
                 bottomTab: {
                   text: 'Profile',
+                  textColor: 'white',
+                  iconColor: 'white',
+                  selectedIconColor: 'black',
+                  icon: require('../resourses/images/avatar.png'),
                 }
               }
             }

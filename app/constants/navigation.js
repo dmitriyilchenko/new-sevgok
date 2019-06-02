@@ -67,6 +67,9 @@ export const defaultOptions = {
       waitForRender: true
     },
   },
+  bottomTabs: {
+    backgroundColor: '#607D8B'
+  },
   sideMenu: {
     openGestureMode: 'bezel',
     left: {

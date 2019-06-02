@@ -22,7 +22,6 @@ class Profile extends Component {
 
     return (
       <View style={styles.container}>
-        <Icon name='heart' />
         <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user ?.fullname}`}</Text>
         <Button
           label={'Sign Out'}
