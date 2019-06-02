@@ -104,7 +104,7 @@ class SignIn extends Component {
         />
         <Button
           width={200}
-          disabled={false}
+          disabled={!valid}
           loading={loading}
           onPress={() => this.onSignUpPress()}
           label={i18n.t('sign_up.confirm_button')}

@@ -25,14 +25,14 @@ class User {
   async createUser(data) {
     const isExist = !!(await this.getUser(data.email));
 
-    if(isExist) return false;
+    if (isExist) return false;
 
     const usersRef = firebase.database().ref('Users/');
     const newUser = usersRef.child(this.escapeEmailAddress(data.email));
 
     newUser.set(data);
-    
-    return true;
+
+    return data;
   }
 }
 
