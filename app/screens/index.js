@@ -4,12 +4,12 @@ import { Navigation } from 'react-native-navigation';
 
 
 import SignIn from './SignIn';
-import Welcome from './Welcome';
+import Profile from './Profile';
 import FindOrder from './FindOrder';
 import CreateOrder from './CreateOrder';
 import { store } from '../store';
 
-const SCREENS = { SignIn, Welcome, FindOrder, CreateOrder };
+const SCREENS = { SignIn, Profile, FindOrder, CreateOrder };
 
 function WrappedComponent(Component) {
   return function inject(props) {

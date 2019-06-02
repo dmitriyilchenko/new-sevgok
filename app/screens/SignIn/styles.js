@@ -8,14 +8,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  input: {
+    height: 30,
+    width: 200,
+    borderWidth: 1,
+    padding: 5,
+    marginVertical: 15,
+  }
 });

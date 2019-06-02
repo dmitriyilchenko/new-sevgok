@@ -7,11 +7,12 @@ import styles from './styles';
 class Button extends Component {
 
   render() {
-    const { label } = this.props;
+    const { label, width, backgroundColor } = this.props;
+    const customContainerStyles = { width, backgroundColor }
 
     return (
       <TouchableOpacity
-        style={styles.container}
+        style={[styles.container, customContainerStyles]}
         onPress={() => this.props.onPress()}
       >
         <Text>{label}</Text>
@@ -24,5 +25,7 @@ export default Button;
 
 Button.defaultProps = {
   label: '',
-  onPress: () => null
+  width: 100,
+  onPress: () => null,
+  backgroundColor: 'red',
 };

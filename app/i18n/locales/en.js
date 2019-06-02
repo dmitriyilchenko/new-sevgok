@@ -1,6 +1,7 @@
 export default {
   welcome: 'Welcome',
-  ui: {
-    sign_in: 'Login'
+  sign_in: {
+    title: 'Please enter your email',
+    login_button: 'Login'
   }
 };

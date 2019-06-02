@@ -132,10 +132,10 @@ class Navigator {
             }
           }, {
             component: {
-              name: 'Welcome',
+              name: 'Profile',
               options: {
                 bottomTab: {
-                  text: 'Welcome',
+                  text: 'Profile',
                 }
               }
             }

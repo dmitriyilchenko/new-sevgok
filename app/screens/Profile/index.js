@@ -10,7 +10,7 @@ import Icon from '../../components/Icon';
 import { signOut } from '../../actions/auth';
 
 
-class Welcome extends Component {
+class Profile extends Component {
 
   logout() {
     const cb = () => setTimeout(() => this.props.signOut());
@@ -23,7 +23,7 @@ class Welcome extends Component {
     return (
       <View style={styles.container}>
         <Icon name='heart' />
-        <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user.name}`}</Text>
+        <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user?.name}`}</Text>
         <Button
           label={'Sign Out'}
           onPress={() => this.logout()}
@@ -39,4 +39,4 @@ function mapStateToProps({ auth }) {
   };
 }
 
-export default connect(mapStateToProps, { signOut })(Welcome);
+export default connect(mapStateToProps, { signOut })(Profile);
