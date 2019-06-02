@@ -19,11 +19,11 @@ class Profile extends Component {
 
   render() {
     const { user } = this.props;
-
+    console.log(user)
     return (
       <View style={styles.container}>
         <Icon name='heart' />
-        <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user?.name}`}</Text>
+        <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user ?.fullname}`}</Text>
         <Button
           label={'Sign Out'}
           onPress={() => this.logout()}

@@ -18,6 +18,10 @@ class User {
     return snapshot.val();
   }
 
+  async updateUser() {
+
+  }
+
   async createUser(data) {
     const isExist = !!(await this.getUser(data.email));
 
