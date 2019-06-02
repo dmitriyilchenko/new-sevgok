@@ -15,7 +15,10 @@ export default class App {
   }
 
   async setRoot(isAuthorized) {
-    await Navigator.setRoot(isAuthorized ? 'Welcome' : 'SignIn');
+    if(isAuthorized)
+     await Navigator.setRootWithTabs();
+    else
+      await Navigator.setRoot('SignIn');
   }
 
   async onAppLaunched() {
@@ -25,7 +28,6 @@ export default class App {
     const isAuthorized = !!user;
 
     await checkTranslations();
-    console.log(initState);
     await Navigation.setDefaultOptions(defaultOptions);
     await this.setRoot(isAuthorized);
   }

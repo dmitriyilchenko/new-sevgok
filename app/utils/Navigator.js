@@ -108,30 +108,38 @@ class Navigator {
     })
   }
 
-  setRootWithMenu(screen, passProps = null, options = {}) {
+  setRootWithTabs() {
     Navigation.setRoot({
       root: {
-        sideMenu: {
-          left: {
+        bottomTabs: {
+          children: [{
             component: {
-              id: 'Drawer',
-              name: 'Drawer',
-            },
-            enabled: false,
-          },
-          center: {
-            stack: {
-              id: 'content',
-              children: [{
-                component: {
-                  id: screen,
-                  name: screen,
-                  passProps,
-                },
-              }],
-              options
+              name: 'CreateOrder',
+              options: {
+                bottomTab: {
+                  text: 'Create Order',
+                }
+              }
             }
-          }
+          }, {
+            component: {
+              name: 'FindOrder',
+              options: {
+                bottomTab: {
+                  text: 'Find Order',
+                }
+              }
+            }
+          }, {
+            component: {
+              name: 'Welcome',
+              options: {
+                bottomTab: {
+                  text: 'Welcome',
+                }
+              }
+            }
+          }]
         }
       }
     })

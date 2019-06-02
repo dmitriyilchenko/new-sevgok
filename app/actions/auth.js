@@ -12,7 +12,7 @@ export function signIn(email) {
         type: SIGN_IN
       });
       
-      Navigator.setRoot('Welcome');
+      Navigator.setRootWithTabs();
       return user;
   }
 }

@@ -2,11 +2,14 @@ import React from 'react';
 import { Provider } from "react-redux";
 import { Navigation } from 'react-native-navigation';
 
+
 import SignIn from './SignIn';
 import Welcome from './Welcome';
+import FindOrder from './FindOrder';
+import CreateOrder from './CreateOrder';
 import { store } from '../store';
 
-const SCREENS = { SignIn, Welcome };
+const SCREENS = { SignIn, Welcome, FindOrder, CreateOrder };
 
 function WrappedComponent(Component) {
   return function inject(props) {
