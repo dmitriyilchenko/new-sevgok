@@ -114,6 +114,19 @@ class Navigator {
         bottomTabs: {
           children: [{
             component: {
+              name: 'Notifications',
+              options: {
+                bottomTab: {
+                  text: 'Notifications',
+                  textColor: 'white',
+                  iconColor: 'white',
+                  selectedIconColor: 'black',
+                  icon: require('../resourses/images/notification.png'),
+                }
+              }
+            }
+          }, {
+            component: {
               name: 'CreateOrder',
               options: {
                 bottomTab: {

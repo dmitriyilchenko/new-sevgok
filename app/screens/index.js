@@ -7,9 +7,10 @@ import SignIn from './SignIn';
 import Profile from './Profile';
 import FindOrder from './FindOrder';
 import CreateOrder from './CreateOrder';
+import Notifications from './Notifications';
 import { store } from '../store';
 
-const SCREENS = { SignIn, Profile, FindOrder, CreateOrder };
+const SCREENS = { SignIn, Profile, FindOrder, CreateOrder, Notifications };
 
 function WrappedComponent(Component) {
   return function inject(props) {
