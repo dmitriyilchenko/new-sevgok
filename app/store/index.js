@@ -1,18 +1,33 @@
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from '@react-native-community/async-storage';
+import * as storage from 'redux-storage';
+import debounce from 'redux-storage-decorator-debounce';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import rootReducer from '../reducers';
 
+const createEngine = (key) => ({
+  load() {
+    return AsyncStorage.getItem(key)
+      .then((jsonState) => JSON.parse(jsonState) || {});
+  },
 
-const middlewares = thunk;
-const persistConfig = {
-  key: 'root',
-  storage,
-};
+  save(state) {
+    const jsonState = JSON.stringify(state);
+    return AsyncStorage.setItem(key, jsonState);
+  }
+});
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+let engine = createEngine('starter-kit-store');
+engine = debounce(engine, 100);
 
-export const store = createStore(persistedReducer, applyMiddleware(middlewares));
-export const persistor = persistStore(store);
+const middleware = storage.createMiddleware(engine);
+
+const createStoreWithMiddleware = compose(
+  applyMiddleware(thunk, middleware)
+)(createStore);
+
+const reducer = storage.reducer(rootReducer)
+
+export const load = storage.createLoader(engine);
+export const store = createStoreWithMiddleware(reducer);

@@ -1,4 +1,5 @@
 import User from '../firebase/User';
+import Navigator from '../utils/Navigator';
 import { SIGN_IN, SIGN_OUT } from '../constants/actionsTypes/auth';
 
 
@@ -11,12 +12,12 @@ export function signIn(email) {
         type: SIGN_IN
       });
       
+      Navigator.setRoot('Welcome');
       return user;
   }
 }
 
-export function signOut(user) {
-  User.getUser('hello@hello.com');
+export function signOut() {
   return {
     type: SIGN_OUT
   };

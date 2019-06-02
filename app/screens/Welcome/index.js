@@ -4,22 +4,29 @@ import { Text, View } from 'react-native';
 
 import styles from './styles';
 import i18n from '../../i18n';
+import Navigator from '../../utils/Navigator';
 import Button from '../../components/Button';
 import Icon from '../../components/Icon';
-import { signIn, signOut } from '../../actions/auth';
+import { signOut } from '../../actions/auth';
 
 
 class Welcome extends Component {
+
+  logout() {
+    const cb = () => setTimeout(() => this.props.signOut());
+    Navigator.setRoot('SignIn', null, {}, cb);
+  }
+
   render() {
     const { user } = this.props;
 
     return (
       <View style={styles.container}>
         <Icon name='heart' />
-        <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user ?.name || 'guest'}`}</Text>
+        <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user.name}`}</Text>
         <Button
-          label={user ? 'Sign Out' : i18n.t('ui.sign_in')}
-          onPress={() => user ? this.props.signOut() : this.props.signIn('hello@hello.com')}
+          label={'Sign Out'}
+          onPress={() => this.logout()}
         />
       </View>
     );
@@ -32,4 +39,4 @@ function mapStateToProps({ auth }) {
   };
 }
 
-export default connect(mapStateToProps, { signIn, signOut })(Welcome);
+export default connect(mapStateToProps, { signOut })(Welcome);
