@@ -19,7 +19,7 @@ class Welcome extends Component {
         <Text style={styles.welcome}>{`${i18n.t('welcome')}, ${user ?.name || 'guest'}`}</Text>
         <Button
           label={user ? 'Sign Out' : i18n.t('ui.sign_in')}
-          onPress={() => user ? this.props.signOut() : this.props.signIn({ name: 'user' })}
+          onPress={() => user ? this.props.signOut() : this.props.signIn('hello@hello.com')}
         />
       </View>
     );
