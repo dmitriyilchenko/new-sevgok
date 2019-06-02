@@ -1,0 +1,6 @@
+<resources>
+	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">x_OoHHKc3qRtMs_F2oWqiWWiXq3TH1bfyUvYnN</string>
+    <string name="app_name">starterkit</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+</resources>
