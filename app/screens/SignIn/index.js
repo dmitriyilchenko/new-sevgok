@@ -7,6 +7,7 @@ import styles from './styles';
 import i18n from '../../i18n';
 import User from '../../firebase/User';
 import Button from '../../components/Button';
+import WarehouseInput from '../../components/WarehouseInput';
 import { signIn, signOut } from '../../actions/auth';
 import { email as emailRegExp } from '../../constants/regexp';
 
@@ -94,13 +95,14 @@ class SignIn extends Component {
           placeholder={i18n.t('sign_up.fullname')}
           onChangeText={(val) => this.onChangeField('fullname', val)}
         />
-        <TextInput
-          value={warehouse_id}
+        <WarehouseInput
+          width={200}
+          label={warehouse_id}
           style={styles.input}
           autoCapitalize='none'
           keyboardType='number-pad'
           placeholder={i18n.t('sign_up.warehouse_id')}
-          onChangeText={(val) => this.onChangeField('warehouse_id', val)}
+          onChange={(val) => this.onChangeField('warehouse_id', val)}
         />
         <Button
           width={200}
