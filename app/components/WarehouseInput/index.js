@@ -4,7 +4,6 @@ import {
   Text,
   FlatList,
   TextInput,
-  ScrollView,
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -12,10 +11,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles';
 import Popup from '../Popup';
 import i18n from '../../i18n';
+import Warehouse from '../../firebase/Warehouse';
 
-
-const cities = [{ name: 'Kiev' }, { name: 'Krivoy Rog' }];
-const warehouses = [{ name: '1' }, { name: '2' }];
 
 class WarehouseInput extends Component {
 
@@ -29,6 +26,33 @@ class WarehouseInput extends Component {
     cityFilter: ''
   }
 
+  componentDidMount() {
+    this.getWarehouses();
+    this.getCities();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.selectedCity !== this.state.selectedCity) this.getWarehouses();
+  }
+
+  async getCities() {
+    const citiesCodes = await Warehouse.getCitiesCodes() || [];
+    const cities = citiesCodes.map(code => ({ code, name: i18n.t(`cities.${code}`) }));
+
+    this.setState({ cities });
+  }
+
+  async getWarehouses() {
+    const warehousesObj = await Warehouse.getWarehouses(this.state.selectedCity) || [];
+    const warehouses = [];
+
+    for (let id in warehousesObj) {
+      warehouses.push({ id, name: `warehouse #${warehousesObj[id].number}` })
+    }
+
+    this.setState({ warehouses });
+  }
+
   filterList = (data, filter) => data.filter(({ name }) => ~name.toLowerCase().indexOf(filter.toLowerCase()))
 
   onChangeField(field, value) {
@@ -40,12 +64,15 @@ class WarehouseInput extends Component {
   }
 
   renderCityItem(item) {
-    const { name } = item;
+    const { code, name } = item;
 
     return (
-      <View style={styles.itemContainer}>
+      <TouchableOpacity
+        style={styles.itemContainer}
+        onPress={() => this.setState({ step: 'warehouse', selectedCity: code })}
+      >
         <Text>{name}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 
@@ -53,14 +80,18 @@ class WarehouseInput extends Component {
     const { name } = item;
 
     return (
-      <View style={styles.itemContainer}>
+      <TouchableOpacity
+        onPress={() => null}
+        style={styles.itemContainer}
+      >
         <Text>{name}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 
   renderCityPicker() {
-    const data = this.filterList(cities, this.state.cityFilter);
+    const { cities, cityFilter } = this.state;
+    const data = this.filterList(cities, cityFilter);
 
     return (
       <View style={styles.modalContent}>
@@ -68,9 +99,9 @@ class WarehouseInput extends Component {
           <Icon name={'arrow-left'} color='black' size={30} />
         </TouchableOpacity>
         <TextInput
+          value={cityFilter}
           autoCorrect={false}
           style={styles.input}
-          value={this.state.cityFilter}
           placeholder={i18n.t('sign_up.fullname')}
           onChangeText={(val) => this.onChangeField('cityFilter', val)}
         />
@@ -86,7 +117,8 @@ class WarehouseInput extends Component {
   }
 
   renderWarehousePicker() {
-    const data = this.filterList(warehouses, this.state.nameFilter);
+    const { warehouses, nameFilter, selectedCity } = this.state;
+    const data = this.filterList(warehouses, nameFilter);
 
     return (
       <View style={styles.modalContent}>
@@ -107,8 +139,8 @@ class WarehouseInput extends Component {
           renderItem={({ item }) => this.renderWarehouseItem(item)}
           keyExtractor={(item, index) => index.toString()}
         />
-        <TouchableOpacity style={styles.pickCityButton} onPress={() => this.setState({ step: 'city' })}>
-          <Text>City</Text>
+        <TouchableOpacity style={styles.pickCityButton} onPress={() => { this.getCities(); this.setState({ step: 'city' }) }}>
+          <Text>{i18n.t(`cities.${selectedCity}`)}</Text>
           <Icon name={'arrow-right'} color='black' size={30} />
         </TouchableOpacity>
       </View>
@@ -132,7 +164,7 @@ class WarehouseInput extends Component {
       placeholder,
     } = this.props;
     const { step, modalVisible } = this.state;
-    const customContainerStyles = { width }
+    const customContainerStyles = { width };
 
     return (
       <View

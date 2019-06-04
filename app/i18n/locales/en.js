@@ -10,5 +10,9 @@ export default {
     confirm_button: 'Next',
     fullname: 'Fullname',
     warehouse_id: 'Warehouse id'
+  },
+  cities: {
+    ua_kyiv: 'Kyiv',
+    ua_kryvoyrog: 'Krivoy Rog',
   }
 };
