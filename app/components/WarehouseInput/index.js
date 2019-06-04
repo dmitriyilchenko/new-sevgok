@@ -4,7 +4,8 @@ import {
   Text,
   FlatList,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -22,7 +23,9 @@ class WarehouseInput extends Component {
     selectedCity: 'ua_kyiv',
     warehouses: [],
     cities: [],
-    nameFilter: '',
+    warehouseLoading: false,
+    citiesLoading: false,
+    warehouseFilter: '',
     cityFilter: ''
   }
 
@@ -36,13 +39,18 @@ class WarehouseInput extends Component {
   }
 
   async getCities() {
+    console.log('getCities')
+    this.setState({ citiesLoading: true });
     const citiesCodes = await Warehouse.getCitiesCodes() || [];
     const cities = citiesCodes.map(code => ({ code, name: i18n.t(`cities.${code}`) }));
+    console.log('getCities finished')
 
-    this.setState({ cities });
+    this.setState({ cities, citiesLoading: false });
   }
 
   async getWarehouses() {
+    this.setState({ warehouseLoading: true });
+
     const warehousesObj = await Warehouse.getWarehouses(this.state.selectedCity) || [];
     const warehouses = [];
 
@@ -50,7 +58,7 @@ class WarehouseInput extends Component {
       warehouses.push({ id, name: `warehouse #${warehousesObj[id].number}` })
     }
 
-    this.setState({ warehouses });
+    this.setState({ warehouses, warehouseLoading: false });
   }
 
   filterList = (data, filter) => data.filter(({ name }) => ~name.toLowerCase().indexOf(filter.toLowerCase()))
@@ -90,7 +98,7 @@ class WarehouseInput extends Component {
   }
 
   renderCityPicker() {
-    const { cities, cityFilter } = this.state;
+    const { cities, cityFilter, citiesLoading } = this.state;
     const data = this.filterList(cities, cityFilter);
 
     return (
@@ -105,6 +113,7 @@ class WarehouseInput extends Component {
           placeholder={i18n.t('sign_up.fullname')}
           onChangeText={(val) => this.onChangeField('cityFilter', val)}
         />
+        <ActivityIndicator animating={citiesLoading} color='black' />
         <FlatList
           data={data}
           style={styles.list}
@@ -117,8 +126,8 @@ class WarehouseInput extends Component {
   }
 
   renderWarehousePicker() {
-    const { warehouses, nameFilter, selectedCity } = this.state;
-    const data = this.filterList(warehouses, nameFilter);
+    const { warehouses, warehouseFilter, selectedCity, warehouseLoading } = this.state;
+    const data = this.filterList(warehouses, warehouseFilter);
 
     return (
       <View style={styles.modalContent}>
@@ -128,10 +137,11 @@ class WarehouseInput extends Component {
         <TextInput
           autoCorrect={false}
           style={styles.input}
-          value={this.state.nameFilter}
+          value={this.state.warehouseFilter}
           placeholder={i18n.t('sign_up.fullname')}
-          onChangeText={(val) => this.onChangeField('nameFilter', val)}
+          onChangeText={(val) => this.onChangeField('warehouseFilter', val)}
         />
+        <ActivityIndicator animating={warehouseLoading} color='black' />
         <FlatList
           data={data}
           style={styles.list}

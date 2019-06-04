@@ -35,6 +35,7 @@ export default StyleSheet.create({
     width: '100%',
     borderWidth: 1,
     borderRadius: 5,
+    marginBottom: 10,
     borderColor: '#607D8B',
     alignItems: 'center',
     justifyContent: 'center',
@@ -44,7 +45,6 @@ export default StyleSheet.create({
     alignSelf: 'stretch',
   },
   pickCityButton: {
-    borderWidth: 1,
     alignSelf: 'stretch',
     justifyContent: 'flex-end',
     alignItems: 'center',
