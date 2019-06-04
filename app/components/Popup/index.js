@@ -51,11 +51,9 @@ class Popup extends Component {
         animationInTiming={450}
         animationOutTiming={600}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-          <KeyboardAvoidingView style={[styles.container, { minHeight: height }]} behavior='padding' enabled>
-            {children}
-          </KeyboardAvoidingView>
-        </TouchableWithoutFeedback>
+        <KeyboardAvoidingView style={[styles.container, { minHeight: height }]} behavior='padding' enabled>
+          {children}
+        </KeyboardAvoidingView>
       </Modal>
     )
   }
