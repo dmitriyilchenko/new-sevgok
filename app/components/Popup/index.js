@@ -48,7 +48,7 @@ class Popup extends Component {
   }
 
   render() {
-    const { children, visible } = this.props;
+    const { children, visible, height } = this.props;
     const { step } = this.state;
 
     return (
@@ -64,7 +64,7 @@ class Popup extends Component {
         animationOutTiming={600}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-          <KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
+          <KeyboardAvoidingView style={[styles.container, { minHeight: height }]} behavior='padding' enabled>
             <TouchableOpacity
               style={styles.icon}
               onPress={this.hideOrBack}
@@ -80,6 +80,7 @@ class Popup extends Component {
 }
 
 Popup.defaultProps = {
+  height: 300,
   onModalToggle: () => null
 };
 
