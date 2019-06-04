@@ -29,6 +29,8 @@ class WarehouseInput extends Component {
     cityFilter: ''
   }
 
+  filterList = (data, filter) => data.filter(({ name }) => ~name.toLowerCase().indexOf(filter.toLowerCase()))
+
   onChangeField(field, value) {
     this.setState({ [field]: value });
   }
@@ -58,19 +60,22 @@ class WarehouseInput extends Component {
   }
 
   renderCityPicker() {
+    const data = this.filterList(cities, this.state.cityFilter);
+
     return (
       <View style={styles.modalContent}>
         <TouchableOpacity style={styles.modalIcon} onPress={() => this.setState({ step: 'warehouse' })}>
           <Icon name={'arrow-left'} color='black' size={30} />
         </TouchableOpacity>
         <TextInput
-          value={this.state.cityFilter}
+          autoCorrect={false}
           style={styles.input}
+          value={this.state.cityFilter}
           placeholder={i18n.t('sign_up.fullname')}
           onChangeText={(val) => this.onChangeField('cityFilter', val)}
         />
         <FlatList
-          data={cities}
+          data={data}
           style={styles.list}
           ItemSeparatorComponent={() => this.renderSeparator()}
           renderItem={({ item }) => this.renderCityItem(item)}
@@ -81,19 +86,22 @@ class WarehouseInput extends Component {
   }
 
   renderWarehousePicker() {
+    const data = this.filterList(warehouses, this.state.nameFilter);
+
     return (
       <View style={styles.modalContent}>
         <TouchableOpacity style={styles.modalIcon} onPress={() => this.setState({ modalVisible: false })}>
           <Icon name={'close'} color='black' size={30} />
         </TouchableOpacity>
         <TextInput
-          value={this.state.nameFilter}
+          autoCorrect={false}
           style={styles.input}
+          value={this.state.nameFilter}
           placeholder={i18n.t('sign_up.fullname')}
           onChangeText={(val) => this.onChangeField('nameFilter', val)}
         />
         <FlatList
-          data={warehouses}
+          data={data}
           style={styles.list}
           ItemSeparatorComponent={() => this.renderSeparator()}
           renderItem={({ item }) => this.renderWarehouseItem(item)}
