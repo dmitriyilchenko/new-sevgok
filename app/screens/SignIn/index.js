@@ -102,7 +102,7 @@ class SignIn extends Component {
           autoCapitalize='none'
           keyboardType='number-pad'
           placeholder={i18n.t('sign_up.warehouse_id')}
-          onChange={(val) => this.onChangeField('warehouse_id', val)}
+          onValueChange={(val) => this.onChangeField('warehouse_id', val.id)}
         />
         <Button
           width={200}
@@ -118,7 +118,7 @@ class SignIn extends Component {
 
   render() {
     const { step } = this.state;
-
+    console.log(this.state)
     return (
       <View style={styles.container}>
         {

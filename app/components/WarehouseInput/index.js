@@ -18,6 +18,7 @@ import Warehouse from '../../firebase/Warehouse';
 class WarehouseInput extends Component {
 
   state = {
+    value: null,
     step: 'warehouse',
     modalVisible: false,
     selectedCity: 'ua_kyiv',
@@ -39,11 +40,9 @@ class WarehouseInput extends Component {
   }
 
   async getCities() {
-    console.log('getCities')
     this.setState({ citiesLoading: true });
     const citiesCodes = await Warehouse.getCitiesCodes() || [];
     const cities = citiesCodes.map(code => ({ code, name: i18n.t(`cities.${code}`) }));
-    console.log('getCities finished')
 
     this.setState({ cities, citiesLoading: false });
   }
@@ -62,6 +61,11 @@ class WarehouseInput extends Component {
   }
 
   filterList = (data, filter) => data.filter(({ name }) => ~name.toLowerCase().indexOf(filter.toLowerCase()))
+
+  onValueChange(item) {
+    this.props.onValueChange(item);
+    this.setState({ modalVisible: false, value: { ...item, city: this.state.selectedCity } });
+  }
 
   onChangeField(field, value) {
     this.setState({ [field]: value });
@@ -89,7 +93,7 @@ class WarehouseInput extends Component {
 
     return (
       <TouchableOpacity
-        onPress={() => null}
+        onPress={() => this.onValueChange(item)}
         style={styles.itemContainer}
       >
         <Text>{name}</Text>
@@ -168,13 +172,13 @@ class WarehouseInput extends Component {
 
   render() {
     const {
-      label,
       width,
       disabled,
       placeholder,
     } = this.props;
-    const { step, modalVisible } = this.state;
+    const { value, step, modalVisible } = this.state;
     const customContainerStyles = { width };
+    const label = `${value.name}, ${i18n.t(`cities.${value.city}`)}`;
 
     return (
       <View
@@ -208,5 +212,5 @@ WarehouseInput.defaultProps = {
   width: 100,
   loading: false,
   placeholder: 'Start typing...',
-  onChange: () => null
+  onValueChange: () => null
 };
