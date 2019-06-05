@@ -190,17 +190,11 @@ class WarehouseInput extends Component {
     const label = value && `${value.name}, ${i18n.t(`cities.${value.city}`)}`;
 
     return (
-      <View
-        disabled={disabled}
+      <TouchableOpacity
+        onPress={() => this.setState({ modalVisible: true })}
         style={[styles.inputContainer, customContainerStyles]}
       >
         {label ? <Text style={styles.label}>{label}</Text> : <Text style={styles.placeholder}>{placeholder}</Text>}
-        <TouchableOpacity
-          style={styles.findIconContainer}
-          onPress={() => this.setState({ modalVisible: true })}
-        >
-          <Text>+</Text>
-        </TouchableOpacity>
         <Popup
           height={400}
           visible={modalVisible}
@@ -209,7 +203,7 @@ class WarehouseInput extends Component {
         >
           {this.renderModalContent()}
         </Popup>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
