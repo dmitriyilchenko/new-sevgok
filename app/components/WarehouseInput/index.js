@@ -13,6 +13,7 @@ import styles from './styles';
 import Popup from '../Popup';
 import i18n from '../../i18n';
 import Warehouse from '../../firebase/Warehouse';
+import { firstUpperCase } from '../../utils/string';
 
 
 class WarehouseInput extends Component {
@@ -54,7 +55,7 @@ class WarehouseInput extends Component {
     const warehouses = [];
 
     for (let id in warehousesObj) {
-      warehouses.push({ id, name: `warehouse #${warehousesObj[id].number}` })
+      warehouses.push({ id, name: `${firstUpperCase(i18n.t('warehouse'))} #${warehousesObj[id].number}` })
     }
 
     this.setState({ warehouses, warehouseLoading: false });
@@ -107,16 +108,18 @@ class WarehouseInput extends Component {
 
     return (
       <View style={styles.modalContent}>
-        <TouchableOpacity style={styles.modalIcon} onPress={() => this.setState({ step: 'warehouse' })}>
-          <Icon name={'arrow-left'} color='black' size={30} />
-        </TouchableOpacity>
-        <TextInput
-          value={cityFilter}
-          autoCorrect={false}
-          style={styles.input}
-          placeholder={i18n.t('sign_up.fullname')}
-          onChangeText={(val) => this.onChangeField('cityFilter', val)}
-        />
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+          <TouchableOpacity style={styles.modalIcon} onPress={() => this.setState({ step: 'warehouse' })}>
+            <Icon name={'chevron-left'} color='#FF1744' size={30} />
+          </TouchableOpacity>
+          <TextInput
+            value={cityFilter}
+            autoCorrect={false}
+            style={styles.input}
+            placeholder={i18n.t('sign_up.fullname')}
+            onChangeText={(val) => this.onChangeField('cityFilter', val)}
+          />
+        </View>
         <ActivityIndicator animating={citiesLoading} color='black' />
         <FlatList
           data={data}
@@ -136,7 +139,7 @@ class WarehouseInput extends Component {
     return (
       <View style={styles.modalContent}>
         <TouchableOpacity style={styles.modalIcon} onPress={() => this.setState({ modalVisible: false })}>
-          <Icon name={'close'} color='black' size={30} />
+          <Icon name={'close'} color='#FF1744' size={30} />
         </TouchableOpacity>
         <TextInput
           autoCorrect={false}
@@ -153,10 +156,16 @@ class WarehouseInput extends Component {
           renderItem={({ item }) => this.renderWarehouseItem(item)}
           keyExtractor={(item, index) => index.toString()}
         />
-        <TouchableOpacity style={styles.pickCityButton} onPress={() => { this.getCities(); this.setState({ step: 'city' }) }}>
-          <Text>{i18n.t(`cities.${selectedCity}`)}</Text>
-          <Icon name={'arrow-right'} color='black' size={30} />
-        </TouchableOpacity>
+        <View style={styles.pickCityButton}>
+          <Text style={{ fontSize: 15 }}>{firstUpperCase(i18n.t('city'))}</Text>
+          <TouchableOpacity
+            style={{ alignItems: 'center', flexDirection: 'row' }}
+            onPress={() => { this.getCities(); this.setState({ step: 'city' }) }}
+          >
+            <Text style={styles.selectedCity}>{i18n.t(`cities.${selectedCity}`)}</Text>
+            <Icon name={'chevron-right'} color='#FF1744' size={30} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -178,7 +187,7 @@ class WarehouseInput extends Component {
     } = this.props;
     const { value, step, modalVisible } = this.state;
     const customContainerStyles = { width };
-    const label = `${value.name}, ${i18n.t(`cities.${value.city}`)}`;
+    const label = value && `${value.name}, ${i18n.t(`cities.${value.city}`)}`;
 
     return (
       <View

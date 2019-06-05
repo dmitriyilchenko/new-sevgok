@@ -118,7 +118,7 @@ class SignIn extends Component {
 
   render() {
     const { step } = this.state;
-    console.log(this.state)
+
     return (
       <View style={styles.container}>
         {

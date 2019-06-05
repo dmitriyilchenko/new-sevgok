@@ -46,13 +46,18 @@ export default StyleSheet.create({
   },
   pickCityButton: {
     alignSelf: 'stretch',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row'
   },
+  selectedCity: {
+    fontSize: 15,
+    marginRight: 5,
+    color: '#FF1744'
+  },
   separator: {
     height: 1,
-    backgroundColor: 'gray'
+    backgroundColor: '#E0E0E0'
   },
   itemContainer: {
     paddingVertical: 5,

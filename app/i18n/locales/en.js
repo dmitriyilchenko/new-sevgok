@@ -14,5 +14,7 @@ export default {
   cities: {
     ua_kyiv: 'Kyiv',
     ua_kryvoyrog: 'Krivoy Rog',
-  }
+  },
+  city: 'city',
+  warehouse: 'warehouse'
 };
