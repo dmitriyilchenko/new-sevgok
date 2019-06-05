@@ -7,7 +7,7 @@ class User {
     if (!email) return false;
 
     email = email.toLowerCase();
-    email = email.replace('.', ',');
+    email = email.replace(/\./g, ',');
     return email;
   }
 

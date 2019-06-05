@@ -180,11 +180,7 @@ class WarehouseInput extends Component {
   }
 
   render() {
-    const {
-      width,
-      disabled,
-      placeholder,
-    } = this.props;
+    const { width, placeholder } = this.props;
     const { value, step, modalVisible } = this.state;
     const customContainerStyles = { width };
     const label = value && `${value.name}, ${i18n.t(`cities.${value.city}`)}`;
