@@ -3,6 +3,17 @@ import firebase from 'firebase';
 
 class User {
 
+  constructor() {
+    const config = {
+      databaseURL: "https://new-sevgok.firebaseio.com",
+      projectId: "new-sevgok",
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
+  }
+
   escapeEmailAddress(email) {
     if (!email) return false;
 

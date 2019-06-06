@@ -64,7 +64,7 @@ class WarehouseInput extends Component {
   filterList = (data, filter) => data.filter(({ name }) => ~name.toLowerCase().indexOf(filter.toLowerCase()))
 
   onValueChange(item) {
-    this.props.onValueChange(item);
+    this.props.onValueChange({ ...item, city_code: this.state.selectedCity });
     this.setState({ modalVisible: false, value: { ...item, city: this.state.selectedCity } });
   }
 

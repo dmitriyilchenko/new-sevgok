@@ -18,15 +18,15 @@ class SignIn extends Component {
     step: 0,
     email: '',
     fullname: '',
-    warehouse_id: null,
+    warehouse: null,
     valid: false,
     loading: false
   };
 
   onChangeField(field, value) {
-    const { fullname, warehouse_id } = this.state;
+    const { fullname, warehouse } = this.state;
     const fullnameValid = fullname.length > 4;
-    const warehouseIdValid = !_.isNil(warehouse_id);
+    const warehouseIdValid = !_.isNil(warehouse);
     const valid = field === 'email' ? emailRegExp.test(value) : (fullnameValid && warehouseIdValid);
 
     this.setState({ [field]: value, valid });
@@ -46,8 +46,8 @@ class SignIn extends Component {
   }
 
   async onSignUpPress() {
-    const { email, fullname, warehouse_id } = this.state;
-    const newUser = { email, fullname, warehouse_id }
+    const { email, fullname, warehouse } = this.state;
+    const newUser = { email, fullname, warehouse_id: warehouse.id, city_code: warehouse.city_code };
 
     this.setState({ loading: true });
     const user = await User.createUser(newUser);
@@ -81,7 +81,7 @@ class SignIn extends Component {
   }
 
   renderSignUpForm() {
-    const { fullname, warehouse_id, valid, loading } = this.state;
+    const { fullname, warehouse, valid, loading } = this.state;
 
     return (
       <View>
@@ -97,10 +97,10 @@ class SignIn extends Component {
         />
         <WarehouseInput
           width={200}
-          label={warehouse_id}
+          label={warehouse ?.id}
           style={styles.input}
           placeholder={i18n.t('sign_up.warehouse_id')}
-          onValueChange={(val) => this.onChangeField('warehouse_id', val.id)}
+          onValueChange={(val) => this.onChangeField('warehouse', val)}
         />
         <Button
           width={200}

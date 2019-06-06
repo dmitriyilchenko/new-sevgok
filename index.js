@@ -8,5 +8,6 @@ const config = {
     projectId: "new-sevgok",
 };
 
-app.start();
 firebase.initializeApp(config);
+app.start();
+

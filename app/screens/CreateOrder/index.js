@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, TextInput, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, TextInput, ScrollView, KeyboardAvoidingView, SafeAreaView } from 'react-native';
 
 import styles from './styles';
 import i18n from '../../i18n';
@@ -33,7 +33,6 @@ class CreateOrder extends Component {
   render() {
     const { user } = this.props;
     const { senderWarehouse } = this.state;
-    console.log(senderWarehouse)
 
     return (
       <SafeAreaView style={{ flex: 1 }}>
