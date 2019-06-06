@@ -16,5 +16,20 @@ export default {
     ua_kryvoyrog: 'Krivoy Rog',
   },
   city: 'city',
-  warehouse: 'warehouse'
+  warehouse: 'warehouse',
+  create_order: {
+    sender_info: {
+      title: 'Sender information',
+      fullname: 'Fullname: ',
+      warehouse: 'Warehouse: '
+    },
+    recipient_info: {
+      title: 'Recipient information'
+    },
+    order_info: {
+      title: 'Order information',
+      description: 'Description: '
+    },
+    send: 'Send'
+  }
 };

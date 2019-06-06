@@ -99,8 +99,6 @@ class SignIn extends Component {
           width={200}
           label={warehouse_id}
           style={styles.input}
-          autoCapitalize='none'
-          keyboardType='number-pad'
           placeholder={i18n.t('sign_up.warehouse_id')}
           onValueChange={(val) => this.onChangeField('warehouse_id', val.id)}
         />

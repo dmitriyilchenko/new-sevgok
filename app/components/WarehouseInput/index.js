@@ -13,7 +13,7 @@ import styles from './styles';
 import Popup from '../Popup';
 import i18n from '../../i18n';
 import Warehouse from '../../firebase/Warehouse';
-import { firstUpperCase } from '../../utils/string';
+import { getWarehouseName, firstUpperCase } from '../../utils/string';
 
 
 class WarehouseInput extends Component {
@@ -183,7 +183,7 @@ class WarehouseInput extends Component {
     const { width, placeholder } = this.props;
     const { value, step, modalVisible } = this.state;
     const customContainerStyles = { width };
-    const label = value && `${value.name}, ${i18n.t(`cities.${value.city}`)}`;
+    const label = getWarehouseName(value);
 
     return (
       <TouchableOpacity
@@ -209,7 +209,6 @@ export default WarehouseInput;
 WarehouseInput.defaultProps = {
   label: '',
   width: 100,
-  loading: false,
   placeholder: 'Start typing...',
   onValueChange: () => null
 };

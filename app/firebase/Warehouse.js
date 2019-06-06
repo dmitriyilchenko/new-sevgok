@@ -30,6 +30,13 @@ class Warehouse {
     return _.keys(snapshot.val());
   }
 
+  async getWarehouse(id, cityCode) {
+    const warehouseRef = firebase.database().ref(`Warehouses/${cityCode}/${id}`);
+    const snapshot = await warehouseRef.once('value');
+
+    return snapshot.val();
+  }
+
   async getWarehouses(cityCode) {
     const warehousesRef = firebase.database().ref(`Warehouses/${cityCode}`);
     const snapshot = await warehousesRef.once('value');
