@@ -30,8 +30,9 @@ class LanguageModal extends Component {
   }
 
   onChange(item) {
-    this.props.changeLanguage(item);
-    setTimeout(() => Navigator.updateTabsLabel());
+    this.props.changeLanguage('en');
+    setTimeout(() => this.props.changeLanguage(item));
+    setTimeout(() => Navigator.updateTabsLabel(), 1000);
   }
 
   renderItem(item) {
@@ -63,6 +64,7 @@ class LanguageModal extends Component {
           <FlatList
             data={languages}
             style={{ marginBottom: 20 }}
+            keyExtractor={(item) => item}
             renderItem={({ item }) => this.renderItem(item)}
             ItemSeparatorComponent={() => <View style={styles.separator} />}
           />

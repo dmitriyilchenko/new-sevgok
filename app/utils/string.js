@@ -2,7 +2,7 @@ import i18n from '../i18n';
 
 
 export function firstUpperCase(string) {
-  return string.replace(/^\w/, c => c.toUpperCase());
+  return string.replace(/^[\wа-я]/, c => c.toUpperCase());
 }
 
 export function getWarehouseName() {

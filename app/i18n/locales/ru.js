@@ -1,64 +1,63 @@
 export default {
-  en: 'English',
-  ru: 'Russian',
-  welcome: 'Hi',
+  en: 'Английский',
+  ru: 'Русский',
   sign_in: {
-    title: 'Enter your email',
-    confirm_button: 'Login'
+    title: 'Введите свою почту',
+    confirm_button: 'Вход'
   },
   sign_up: {
-    back: 'Back',
-    title: 'Fill the next data',
-    confirm_button: 'Next',
-    fullname: 'Fullname',
-    warehouse_id: 'Warehouse id'
+    back: 'Назад',
+    title: 'Заполните следующую информацию',
+    confirm_button: 'Дальше',
+    fullname: 'Полное имя',
+    warehouse_id: 'Номер склада'
   },
   cities: {
     ua_kyiv: 'Киев',
     ua_kryvoyrog: 'Кривой Рог',
   },
-  city: 'city',
-  warehouse: 'warehouse',
+  city: 'город',
+  warehouse: 'склад',
   create_order: {
     sender_info: {
-      title: 'Sender information',
-      fullname: 'Fullname: ',
-      warehouse: 'Warehouse: '
+      title: 'Информация о отправителе',
+      fullname: 'Полное имя: ',
+      warehouse: 'Номер склада: '
     },
     recipient_info: {
-      title: 'Recipient information'
+      title: 'Информация о получателе'
     },
     order_info: {
-      title: 'Order information',
-      description: 'Description: '
+      title: 'Информация о заказе',
+      description: 'Описание: '
     },
     order_exist: {
-      title: 'Error',
-      description: 'Order with same id already exist'
+      title: 'Ошибка',
+      description: 'Заказ с таким номером уже существует'
     },
     same_warehouses: {
-      title: 'Error',
-      description: 'Point of departure and point of reception must be different'
+      title: 'Ошибка',
+      description: 'Точка отправления и точка получения должны быть разными'
     },
     empty_recipient: {
-      title: 'Error',
-      description: 'Fill recipient information'
+      title: 'Ошибка',
+      description: 'Заполните информацию о получателе'
     },
     success: {
-      title: 'Successfully',
-      description: 'Order successfully created.'
+      title: 'Успешно',
+      description: 'Заказ успешно создан'
     },
-    send: 'Send',
-    clear: 'Clear'
+    send: 'Отправить',
+    clear: 'Очистить'
   },
   profile: {
-    new_warehouse: 'Select new warehouse',
-    new_fullname: 'Type new fullname',
-    update: 'Update',
-    sign_out: 'Sign out'
+    new_warehouse: 'Выберите новый склад',
+    new_fullname: 'Введите новое имя',
+    update: 'Обновить',
+    sign_out: 'Выйти'
   },
   language_modal: {
-    title: 'Select language'
+    title: 'Выберите язык'
   },
   tabs: {
     notifications: 'Уведомления',
