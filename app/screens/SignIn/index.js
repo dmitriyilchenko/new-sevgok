@@ -127,4 +127,10 @@ class SignIn extends Component {
   }
 }
 
-export default connect(null, { signIn, signOut })(SignIn);
+function mapStateToProps({ translations }) {
+  return {
+    language: translations.language
+  };
+}
+
+export default connect(mapStateToProps, { signIn, signOut })(SignIn);

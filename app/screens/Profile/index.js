@@ -150,9 +150,10 @@ class Profile extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps({ auth, translations }) {
   return {
-    user: auth.user
+    user: auth.user,
+    language: translations.language
   };
 }
 
