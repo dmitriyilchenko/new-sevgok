@@ -1,7 +1,7 @@
-import { SET_TRANSLATIONS } from '../constants/actionsTypes/translations';
+import { SET_TRANSLATIONS, CHANGE_LANGUAGE } from '../constants/actionsTypes/translations';
 
 
-const initialState = { etag: null, data: {} };
+const initialState = { language: 'en', etag: null, data: {} };
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -9,6 +9,11 @@ export default function (state = initialState, action) {
       return {
         etag: action.payload.etag,
         data: action.payload.data || {}
+      };
+    case CHANGE_LANGUAGE:
+      return {
+        ...state,
+        language: action.language
       };
     default: return state;
   }

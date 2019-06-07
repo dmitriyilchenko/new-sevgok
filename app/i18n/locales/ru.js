@@ -58,6 +58,6 @@ export default {
     sign_out: 'Sign out'
   },
   language_modal: {
-    title: 'Select language'
+    title: 'Выберите язык'
   }
 };

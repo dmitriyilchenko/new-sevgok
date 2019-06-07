@@ -1,13 +1,21 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { Text, View, ScrollView, TextInput, SafeAreaView } from 'react-native';
+import {
+  Text,
+  View,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+  SafeAreaView
+} from 'react-native';
 
 import styles from './styles';
 import i18n from '../../i18n';
 import Navigator from '../../utils/Navigator';
 import Icon from '../../components/Icon';
 import Button from '../../components/Button';
+import LanguageModal from '../../components/LanguageModal';
 import WarehouseInput from '../../components/WarehouseInput';
 import { update, signOut } from '../../actions/auth';
 import User from '../../firebase/User';
@@ -22,7 +30,8 @@ class Profile extends Component {
     newFullname: '',
     newWarehouse: null,
     updateDisabled: true,
-    updateLoading: false
+    updateLoading: false,
+    languageModalVisible: false,
   };
 
   componentDidMount() {
@@ -78,14 +87,19 @@ class Profile extends Component {
 
   render() {
     const { user } = this.props;
-    const { warehouse, updateDisabled, updateLoading } = this.state;
+    const { warehouse, updateDisabled, updateLoading, languageModalVisible } = this.state;
 
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.infoContainer}>
           <Text style={styles.fullname}>{user ?.fullname}</Text>
           <Text style={styles.warehouse}>{getWarehouseName(warehouse, user ?.city_code)}</Text>
-          <Icon style={{ position: 'absolute', right: 20, top: 15, fontSize: 25, color: '#448AFF' }} name='globe' />
+          <TouchableOpacity
+            onPress={() => this.setState({ languageModalVisible: true })}
+            style={{ position: 'absolute', right: 20, top: 15 }}
+          >
+            <Icon style={{ fontSize: 25, color: '#448AFF' }} name='globe' />
+          </TouchableOpacity>
         </View>
         <View style={styles.separator} />
         <ScrollView style={styles.updateInfoContainer}>
@@ -127,6 +141,10 @@ class Profile extends Component {
             onPress={() => this.logout()}
           />
         </View>
+        <LanguageModal
+          visible={languageModalVisible}
+          onModalToggle={languageModalVisible => this.setState({ languageModalVisible })}
+        />
       </SafeAreaView>
     );
   }

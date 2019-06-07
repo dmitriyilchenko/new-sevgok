@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 import { API_HOST_URL } from '../constants';
-import { SET_TRANSLATIONS } from '../constants/actionsTypes/translations';
+import { SET_TRANSLATIONS, CHANGE_LANGUAGE } from '../constants/actionsTypes/translations';
 import { store } from '../store';
 import i18n from '../i18n';
 import axios from '../utils/axios';
@@ -11,7 +11,7 @@ const url = API_HOST_URL + 'translations';
 
 function setTranslations(translations) {
   for (let item in translations) {
-    i18n.translations.da[item] = translations[item].da;
+    i18n.translations.ru[item] = translations[item].ru;
     i18n.translations.en[item] = translations[item].en;
   }
 }
@@ -47,4 +47,13 @@ export async function getTranslations() {
   } catch (error) {
     setTranslations(store.getState().translations.data);
   }
+}
+
+export function changeLanguage(language) {
+  i18n.locale = language;
+
+  return {
+    language,
+    type: CHANGE_LANGUAGE
+  };
 }
