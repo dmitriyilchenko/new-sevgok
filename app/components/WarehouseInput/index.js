@@ -13,6 +13,7 @@ import styles from './styles';
 import Popup from '../Popup';
 import i18n from '../../i18n';
 import Warehouse from '../../firebase/Warehouse';
+import withTranslations from '../../hoc/withTranslations';
 import { getWarehouseName, firstUpperCase } from '../../utils/string';
 
 
@@ -208,7 +209,7 @@ class WarehouseInput extends Component {
   }
 }
 
-export default WarehouseInput;
+export default withTranslations(WarehouseInput);
 
 WarehouseInput.defaultProps = {
   label: '',

@@ -14,8 +14,8 @@ export default {
     warehouse_id: 'Warehouse id'
   },
   cities: {
-    ua_kyiv: 'Kyiv',
-    ua_kryvoyrog: 'Krivoy Rog',
+    ua_kyiv: 'Киев',
+    ua_kryvoyrog: 'Кривой Рог',
   },
   city: 'city',
   warehouse: 'warehouse',
