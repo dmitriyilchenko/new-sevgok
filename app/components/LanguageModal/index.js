@@ -11,6 +11,7 @@ import {
 
 import styles from './styles';
 import i18n from '../../i18n';
+import Navigator from '../../utils/Navigator';
 import { changeLanguage } from '../../actions/translations';
 
 
@@ -29,8 +30,8 @@ class LanguageModal extends Component {
   }
 
   onChange(item) {
-
     this.props.changeLanguage(item);
+    setTimeout(() => Navigator.updateTabsLabel());
   }
 
   renderItem(item) {

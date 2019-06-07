@@ -1,5 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 
+import i18n from '../i18n';
+
 export const LEFT_SIDE_MENU_ID = 'Drawer';
 export const RIGHT_SIDE_MENU_ID = '';
 
@@ -81,31 +83,27 @@ class Navigator {
     });
   }
 
-  setStackRootWithMenu(componentId, screen, passProps = null, options = {}) {
-    Navigation.setStackRoot(componentId, {
-      sideMenu: {
-        left: {
-          component: {
-            id: 'Drawer',
-            name: 'Drawer',
-          },
-          enabled: false
-        },
-        center: {
-          stack: {
-            id: 'content',
-            children: [{
-              component: {
-                id: screen,
-                name: screen,
-                passProps,
-                options
-              }
-            }]
-          }
-        }
+  async updateTabsLabel() {
+    Navigation.mergeOptions('Notifications', {
+      bottomTab: {
+        text: i18n.t('tabs.notifications')
       }
-    })
+    });
+    Navigation.mergeOptions('CreateOrder', {
+      bottomTab: {
+        text: i18n.t('tabs.create_order')
+      }
+    });
+    Navigation.mergeOptions('FindOrder', {
+      bottomTab: {
+        text: i18n.t('tabs.find_order')
+      }
+    });
+    Navigation.mergeOptions('Profile', {
+      bottomTab: {
+        text: i18n.t('tabs.profile')
+      }
+    });
   }
 
   setRootWithTabs() {
@@ -114,10 +112,11 @@ class Navigator {
         bottomTabs: {
           children: [{
             component: {
+              id: 'Notifications',
               name: 'Notifications',
               options: {
                 bottomTab: {
-                  text: 'Notifications',
+                  text: i18n.t('tabs.notifications'),
                   textColor: 'white',
                   iconColor: 'white',
                   selectedIconColor: 'black',
@@ -127,10 +126,11 @@ class Navigator {
             }
           }, {
             component: {
+              id: 'CreateOrder',
               name: 'CreateOrder',
               options: {
                 bottomTab: {
-                  text: 'Create Order',
+                  text: i18n.t('tabs.create_order'),
                   textColor: 'white',
                   iconColor: 'white',
                   selectedIconColor: 'black',
@@ -140,10 +140,11 @@ class Navigator {
             }
           }, {
             component: {
+              id: 'FindOrder',
               name: 'FindOrder',
               options: {
                 bottomTab: {
-                  text: 'Find Order',
+                  text: i18n.t('tabs.find_order'),
                   textColor: 'white',
                   iconColor: 'white',
                   selectedIconColor: 'black',
@@ -153,10 +154,11 @@ class Navigator {
             }
           }, {
             component: {
+              id: 'Profile',
               name: 'Profile',
               options: {
                 bottomTab: {
-                  text: 'Profile',
+                  text: i18n.t('tabs.profile'),
                   textColor: 'white',
                   iconColor: 'white',
                   selectedIconColor: 'black',

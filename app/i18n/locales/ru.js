@@ -58,6 +58,12 @@ export default {
     sign_out: 'Sign out'
   },
   language_modal: {
-    title: 'Выберите язык'
+    title: 'Select language'
+  },
+  tabs: {
+    notifications: 'Уведомления',
+    create_order: 'Создать заказ',
+    find_order: 'Найти заказ',
+    profile: 'Профиль',
   }
 };

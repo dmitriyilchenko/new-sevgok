@@ -59,5 +59,11 @@ export default {
   },
   language_modal: {
     title: 'Select language'
+  },
+  tabs: {
+    notifications: 'Notifications',
+    create_order: 'Create order',
+    find_order: 'Find order',
+    profile: 'Profile',
   }
 };
