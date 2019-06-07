@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT } from '../constants/actionsTypes/auth';
+import { SIGN_IN, UPDATE, SIGN_OUT } from '../constants/actionsTypes/auth';
 
 
 const initialState = {
@@ -8,6 +8,12 @@ const initialState = {
 export default function auth(state = initialState, action) {
   switch (action.type) {
     case SIGN_IN: {
+      return {
+        ...state,
+        user: action.user
+      };
+    }
+    case UPDATE: {
       return {
         ...state,
         user: action.user

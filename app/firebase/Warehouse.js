@@ -6,17 +6,6 @@ import axios from '../utils/axios';
 
 class Warehouse {
 
-  constructor() {
-    const config = {
-      databaseURL: "https://new-sevgok.firebaseio.com",
-      projectId: "new-sevgok",
-    };
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(config);
-    }
-  }
-
   getInfo() {
     const lat = 50.4254395;
     const long = 30.5404806;

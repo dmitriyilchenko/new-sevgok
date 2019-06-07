@@ -3,9 +3,9 @@ import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 
 function Icon(props) {
-  const { name, size, color } = props;
+  const { name, size, color, style } = props;
 
-  return <AwesomeIcon name={name} size={size} color={color} />;
+  return <AwesomeIcon style={style} name={name} size={size} color={color} />;
 }
 
 export default Icon;

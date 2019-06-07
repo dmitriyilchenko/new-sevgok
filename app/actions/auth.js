@@ -1,6 +1,6 @@
 import User from '../firebase/User';
 import Navigator from '../utils/Navigator';
-import { SIGN_IN, SIGN_OUT } from '../constants/actionsTypes/auth';
+import { SIGN_IN, UPDATE, SIGN_OUT } from '../constants/actionsTypes/auth';
 
 
 export function signIn(email) {
@@ -15,6 +15,13 @@ export function signIn(email) {
     Navigator.setRootWithTabs();
     return user;
   }
+}
+
+export function update(user) {
+  return {
+    user,
+    type: UPDATE
+  };
 }
 
 export function signOut() {

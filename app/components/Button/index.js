@@ -10,11 +10,13 @@ class Button extends Component {
     const {
       label,
       width,
+      style,
       loading,
       disabled,
-      backgroundColor
+      backgroundColor,
+      disabledBackgroundColor
     } = this.props;
-    const customContainerStyles = { width, backgroundColor }
+    const customContainerStyles = { width, backgroundColor: disabled ? disabledBackgroundColor : backgroundColor, ...style }
 
     return (
       <TouchableOpacity
@@ -31,10 +33,12 @@ class Button extends Component {
 export default Button;
 
 Button.defaultProps = {
+  style: {},
   label: '',
   width: 100,
   loading: false,
   disabled: false,
   onPress: () => null,
   backgroundColor: '#4CAF50',
+  disabledBackgroundColor: '#9E9E9E'
 };

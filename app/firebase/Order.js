@@ -3,17 +3,6 @@ import firebase from 'firebase';
 
 class Order {
 
-  constructor() {
-    const config = {
-      databaseURL: "https://new-sevgok.firebaseio.com",
-      projectId: "new-sevgok",
-    };
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(config);
-    }
-  }
-
   async getOrder(id) {
     const orderRef = firebase.database().ref(`Orders/${id}`);
     const snapshot = await orderRef.once('value');
@@ -26,9 +15,12 @@ class Order {
   }
 
   async createOrder(data) {
+    const isExist = !!(await this.getOrder(data.id));
+
+    if (isExist) return false;
+
     const ordersRef = firebase.database().ref('Orders/');
-    const snapshot = await ordersRef.once('value');
-    const newOrder = ordersRef.child(snapshot.numChildren());
+    const newOrder = ordersRef.child(data.id);
 
     newOrder.set(data);
 

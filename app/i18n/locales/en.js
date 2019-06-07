@@ -30,6 +30,29 @@ export default {
       title: 'Order information',
       description: 'Description: '
     },
-    send: 'Send'
+    order_exist: {
+      title: 'Error',
+      description: 'Order with same id already exist'
+    },
+    same_warehouses: {
+      title: 'Error',
+      description: 'Point of departure and point of reception must be different'
+    },
+    empty_recipient: {
+      title: 'Error',
+      description: 'Fill recipient information'
+    },
+    success: {
+      title: 'Successfully',
+      description: 'Order successfully created.'
+    },
+    send: 'Send',
+    clear: 'Clear'
+  },
+  profile: {
+    new_warehouse: 'Select new warehouse',
+    new_fullname: 'Type new fullname',
+    update: 'Update',
+    sign_out: 'Sign out'
   }
 };

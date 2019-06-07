@@ -43,4 +43,11 @@ export default StyleSheet.create({
     alignSelf: 'stretch',
     backgroundColor: '#E0E0E0'
   },
+  clear: {
+    marginHorizontal: 10,
+    backgroundColor: '#FF1744'
+  },
+  send: {
+    marginHorizontal: 10,
+  },
 });

@@ -61,6 +61,10 @@ class WarehouseInput extends Component {
     this.setState({ warehouses, warehouseLoading: false });
   }
 
+  clear() {
+    this.setState({ value: null });
+  }
+
   filterList = (data, filter) => data.filter(({ name }) => ~name.toLowerCase().indexOf(filter.toLowerCase()))
 
   onValueChange(item) {

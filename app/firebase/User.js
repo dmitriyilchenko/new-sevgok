@@ -3,17 +3,6 @@ import firebase from 'firebase';
 
 class User {
 
-  constructor() {
-    const config = {
-      databaseURL: "https://new-sevgok.firebaseio.com",
-      projectId: "new-sevgok",
-    };
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(config);
-    }
-  }
-
   escapeEmailAddress(email) {
     if (!email) return false;
 
@@ -29,8 +18,13 @@ class User {
     return snapshot.val();
   }
 
-  async updateUser() {
+  async updateUser(data) {
+    const usersRef = firebase.database().ref('Users/');
+    const user = usersRef.child(this.escapeEmailAddress(data.email));
 
+    user.set(data);
+
+    return data;
   }
 
   async createUser(data) {
