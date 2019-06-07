@@ -5,18 +5,13 @@ import { store, load } from './store';
 import { registerScreens } from './screens';
 import Navigator from './utils/Navigator';
 import { defaultOptions } from './constants/navigation';
-import { checkTranslations } from './actions/translations';
 
 
 export default class App {
 
-  constructor() {
-    i18n.locale = 'en';
-  }
-
   async setRoot(isAuthorized) {
-    if(isAuthorized)
-     await Navigator.setRootWithTabs();
+    if (isAuthorized)
+      await Navigator.setRootWithTabs();
     else
       await Navigator.setRoot('SignIn');
   }
@@ -25,9 +20,11 @@ export default class App {
     const state = await load(store);
     const initState = state.auth ? state : store.getState()
     const { user } = initState.auth;
+    const { language } = initState.translations;
     const isAuthorized = !!user;
 
-    await checkTranslations();
+    i18n.locale = language;
+
     await Navigation.setDefaultOptions(defaultOptions);
     await this.setRoot(isAuthorized);
   }
