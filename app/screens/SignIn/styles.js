@@ -8,8 +8,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  title: {
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20
+  },
+  title: {
+    marginLeft: 5
   },
   input: {
     padding: 5,

@@ -6,6 +6,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import i18n from '../../i18n';
 import User from '../../firebase/User';
+import Icon from '../../components/Icon';
 import Button from '../../components/Button';
 import WarehouseInput from '../../components/WarehouseInput';
 import { signIn, signOut } from '../../actions/auth';
@@ -25,8 +26,8 @@ class SignIn extends Component {
 
   onChangeField(field, value) {
     const { fullname, warehouse } = this.state;
-    const fullnameValid = fullname.length > 4;
-    const warehouseIdValid = !_.isNil(warehouse);
+    const fullnameValid = field === 'fullname' ? value.length > 4 : fullname.length > 4;
+    const warehouseIdValid = field === 'warehouse' ? !_.isNil(value) : !_.isNil(warehouse);
     const valid = field === 'email' ? emailRegExp.test(value) : (fullnameValid && warehouseIdValid);
 
     this.setState({ [field]: value, valid });
@@ -84,11 +85,13 @@ class SignIn extends Component {
     const { fullname, warehouse, valid, loading } = this.state;
 
     return (
-      <View>
-        <TouchableOpacity onPress={() => this.setState({ step: 0, valid: true })}>
-          <Text>{i18n.t('sign_up.back')}</Text>
-        </TouchableOpacity>
-        <Text style={styles.title}>{i18n.t('sign_up.title')}</Text>
+      <View style={{ alignItems: 'center' }}>
+        <View style={styles.titleContainer}>
+          <TouchableOpacity onPress={() => this.setState({ step: 0, valid: true })}>
+            <Icon name='chevron-left' />
+          </TouchableOpacity>
+          <Text style={styles.title}>{i18n.t('sign_up.title')}</Text>
+        </View>
         <TextInput
           value={fullname}
           style={styles.input}
