@@ -108,7 +108,7 @@ class Profile extends Component {
             <View style={{ height: 50 }}>
               <WarehouseInput
                 width={200}
-                ref={(ref) => this.warehouseInput = ref}
+                forwardedRef={(ref) => this.warehouseInput = ref}
                 placeholder={i18n.t('sign_up.warehouse_id')}
                 onValueChange={(val) => this.onChangeField('newWarehouse', val)}
               />

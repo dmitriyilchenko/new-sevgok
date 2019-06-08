@@ -106,7 +106,7 @@ class CreateOrder extends Component {
             <Text style={styles.senderInfoTitle}>{i18n.t('create_order.recipient_info.title')}</Text>
             <WarehouseInput
               width={200}
-              ref={(ref) => this.recipientInput = ref}
+              forwardedRef={(ref) => this.recipientInput = ref}
               placeholder={i18n.t('sign_up.warehouse_id')}
               onValueChange={(recipientWarehouse) => this.setState({ recipientWarehouse })}
             />

@@ -6,15 +6,21 @@ function withTranslations(WrappedComponent) {
 
   class Enhanced extends Component {
     render() {
-      return <WrappedComponent {...this.props} />;
+      const { forwardedRef } = this.props;
+
+      return <WrappedComponent ref={forwardedRef} {...this.props} />;
     }
   };
+
+  function forwardRef(props, ref) {
+    return <Enhanced {...props} forwardedRef={ref} />;
+  }
 
   function mapStateToProps({ translations }) {
     return { language: translations.language }
   }
 
-  return connect(mapStateToProps, {})(Enhanced);
+  return connect(mapStateToProps, {})(React.forwardRef(forwardRef));
 }
 
 export default withTranslations

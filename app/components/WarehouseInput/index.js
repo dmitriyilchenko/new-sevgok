@@ -215,5 +215,6 @@ WarehouseInput.defaultProps = {
   label: '',
   width: 100,
   placeholder: 'Start typing...',
-  onValueChange: () => null
+  onValueChange: () => null,
+  ref: () => null
 };
