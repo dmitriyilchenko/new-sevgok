@@ -70,6 +70,7 @@ export default {
   find_order: {
     status: 'Status:',
     sent_at: 'Sent at:',
-    expected_delivery_time: 'Expected delivery time:'
+    expected_delivery_time: 'Expected delivery time:',
+    receive: 'Receive'
   },
 };

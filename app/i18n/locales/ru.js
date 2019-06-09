@@ -64,5 +64,12 @@ export default {
     create_order: 'Создать заказ',
     find_order: 'Найти заказ',
     profile: 'Профиль',
-  }
+  },
+  order: 'заказ',
+  find_order: {
+    status: 'Статус:',
+    sent_at: 'Отправлено:',
+    expected_delivery_time: 'Ожидаемое время доставки:',
+    receive: 'Получить'
+  },
 };
