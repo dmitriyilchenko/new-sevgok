@@ -53,8 +53,14 @@ class CreateOrder extends Component {
       description,
       status: 'sent',
       sent_at: Date.now(),
-      sender_id: user.warehouse_id,
-      destination_id: recipientWarehouse.id
+      sender: {
+        id: user.warehouse_id,
+        city_code: user.city_code
+      },
+      destination: {
+        id: recipientWarehouse.id,
+        city_code: recipientWarehouse.city_code
+      }
     });
 
     if (newOrder) {
@@ -116,6 +122,7 @@ class CreateOrder extends Component {
             <Text style={styles.senderInfoTitle}>{i18n.t('create_order.order_info.title')}</Text>
             <OrderInput
               width={200}
+              style={{ marginBottom: 15 }}
               value={this.state.orderId}
               onValueChange={(orderId) => this.setState({ orderId })}
             />
