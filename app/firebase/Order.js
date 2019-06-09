@@ -10,8 +10,17 @@ class Order {
     return snapshot.val();
   }
 
-  async updateOrder() {
+  async updateOrder(id, data) {
 
+    const orderRef = firebase.database().ref(`Orders/${id}`);
+    const snapshot = await orderRef.once('value');
+    const order = snapshot.val();
+
+    if (!order) return false;
+
+    orderRef.update(data);
+
+    return data;
   }
 
   async createOrder(data) {

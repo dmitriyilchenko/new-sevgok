@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import {
   View,
@@ -27,11 +28,24 @@ class FindOrder extends Component {
     foundOrder: null,
     senderInfo: null,
     recipientInfo: null,
-    deliveryTime: null
+    deliveryTime: null,
+    receiveLoading: false
+  }
+
+  async onReceive() {
+    this.setState({ receiveLoading: true });
+
+    const res = await Order.updateOrder(this.state.orderId, { status: 'received' });
+
+    this.setState({ receiveLoading: false });
+    this.onSearch();
   }
 
   async onSearch() {
-    if (!this.state.orderId) return;
+    if (!this.state.orderId) {
+      this.setState({ foundOrder: null, senderInfo: null, recipientInfo: null, deliveryTime: null });
+      return;
+    };
 
     this.setState({ loading: true });
 
@@ -88,7 +102,9 @@ class FindOrder extends Component {
   }
 
   render() {
-    const { loading, foundOrder } = this.state;
+    const { user } = this.props;
+    const { loading, foundOrder, recipientInfo, receiveLoading } = this.state;
+    const showReceive = foundOrder ?.status === 'sent' && user ?.warehouse_id === recipientInfo ?.id;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -103,14 +119,19 @@ class FindOrder extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.separator} />
-        <View style={styles.resultContainer}>
+        <ScrollView contentContainerStyle={styles.resultContainer}>
           <ActivityIndicator animating={loading} color='black' />
           {foundOrder && this.renderResult()}
-        </View>
+        </ScrollView>
         {
-          true &&
-          <View>
-            <Button label='receive' />
+          showReceive &&
+          <View style={{ alignSelf: 'stretch' }}>
+            <Button
+              style={styles.receive}
+              loading={receiveLoading}
+              onPress={() => this.onReceive()}
+              label={i18n.t('find_order.receive')}
+            />
           </View>
         }
       </SafeAreaView>
@@ -118,4 +139,10 @@ class FindOrder extends Component {
   }
 }
 
-export default FindOrder;
+function mapStateToProps({ auth }) {
+  return {
+    user: auth.user
+  }
+}
+
+export default connect(mapStateToProps, {})(FindOrder);

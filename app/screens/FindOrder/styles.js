@@ -48,6 +48,10 @@ export default StyleSheet.create({
   detailValue: {
     color: '#FF1744'
   },
+  receive: {
+    width: '100%',
+    alignSelf: 'stretch',
+  },
   separator: {
     height: 1,
     alignSelf: 'stretch',
