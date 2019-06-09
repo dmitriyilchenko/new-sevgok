@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "code-push-android-stage": "appcenter codepush release-react -a Dmitriy Ilchenko/starter-kit[android] -d Staging",
     "test": "jest"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "axios": "^0.18.0",
     "firebase": "^6.1.0",
     "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-code-push": "^5.6.0",

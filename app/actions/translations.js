@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { Platform } from 'react-native';
 
 import { API_HOST_URL } from '../constants';
@@ -51,6 +52,7 @@ export async function getTranslations() {
 
 export function changeLanguage(language) {
   i18n.locale = language;
+  moment.locale(language);
 
   return {
     language,

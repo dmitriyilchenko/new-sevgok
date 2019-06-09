@@ -65,5 +65,11 @@ export default {
     create_order: 'Create order',
     find_order: 'Find order',
     profile: 'Profile',
-  }
+  },
+  order: 'order',
+  find_order: {
+    status: 'Status:',
+    sent_at: 'Sent at:',
+    expected_delivery_time: 'Expected delivery time:'
+  },
 };

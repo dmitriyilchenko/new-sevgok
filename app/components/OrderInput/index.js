@@ -12,8 +12,8 @@ class OrderInput extends Component {
   }
 
   render() {
-    const { value, width, placeholder } = this.props;
-    const customContainerStyles = { width };
+    const { value, width, placeholder, style } = this.props;
+    const customContainerStyles = { minWidth: width, maxWidth: width, ...style };
 
     return (
       <View style={[styles.container, customContainerStyles]}>
@@ -37,6 +37,8 @@ export default OrderInput;
 OrderInput.defaultProps = {
   label: '',
   width: 100,
+  maxWidth: 100,
+  style: {},
   placeholder: 'Order id',
   onValueChange: () => null
 };

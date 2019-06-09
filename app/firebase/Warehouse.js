@@ -15,6 +15,13 @@ class Warehouse {
     axios.get(url).then(res => console.log(res)).catch(err => console.log(err))
   }
 
+  async getDistance(senderLocation, recipientLocation) {
+    const url = `http://router.project-osrm.org/table/v1/driving/${senderLocation.lat},${senderLocation.lon};${recipientLocation.lat},${recipientLocation.lon}`;
+    const { data } = await axios.get(url);
+
+    return data;
+  }
+
   async createWarehouse(cityCode, data) {
     const warehousesRef = firebase.database().ref(`Warehouses/${cityCode}`);
 

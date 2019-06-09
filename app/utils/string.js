@@ -14,3 +14,7 @@ export function getWarehouseName() {
     return `${firstUpperCase(i18n.t('warehouse'))} #${arguments[0].number}, ${i18n.t(`cities.${arguments[1]}`)}`;
   }
 }
+
+export function getOrderName(id) {
+  return `${firstUpperCase(i18n.t('order'))} #${id}`;
+}
