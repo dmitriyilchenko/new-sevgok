@@ -48,10 +48,14 @@ class FindOrder extends Component {
     };
 
     this.setState({ loading: true });
-
     const foundOrder = await Order.getOrder(this.state.orderId);
-    const { sender, destination } = foundOrder;
 
+    if (!foundOrder) {
+      this.setState({ loading: false, foundOrder: null, senderInfo: null, recipientInfo: null, deliveryTime: null });
+      return;
+    }
+
+    const { sender, destination } = foundOrder;
     const senderWarehouse = await Warehouse.getWarehouse(sender.id, sender.city_code);
     const recipientWarehouse = await Warehouse.getWarehouse(destination.id, destination.city_code);
     const deliveryTime = (await Warehouse.getDistance(senderWarehouse.locale, recipientWarehouse.locale)).durations[0][1] * 1000;

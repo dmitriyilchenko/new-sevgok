@@ -14,7 +14,8 @@ export default StyleSheet.create({
     marginBottom: 20
   },
   title: {
-    marginLeft: 5
+    marginBottom: 5,
+    textAlignVertical: 'center'
   },
   input: {
     padding: 5,

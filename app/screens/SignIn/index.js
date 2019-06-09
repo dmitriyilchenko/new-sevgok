@@ -87,7 +87,7 @@ class SignIn extends Component {
     return (
       <View style={{ alignItems: 'center' }}>
         <View style={styles.titleContainer}>
-          <TouchableOpacity onPress={() => this.setState({ step: 0, valid: true })}>
+          <TouchableOpacity style={{ marginRight: 5 }} onPress={() => this.setState({ step: 0, valid: true })}>
             <Icon name='chevron-left' />
           </TouchableOpacity>
           <Text style={styles.title}>{i18n.t('sign_up.title')}</Text>

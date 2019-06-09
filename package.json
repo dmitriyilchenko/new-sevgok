@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "code-push-android-stage": "appcenter codepush release-react -a Dmitriy Ilchenko/starter-kit[android] -d Staging",
+    "code-push-android-stage": "appcenter codepush release-react -a dilchenko-zaraffasoft.com/starter-kit-android",
     "test": "jest"
   },
   "dependencies": {
