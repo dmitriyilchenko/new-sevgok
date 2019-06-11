@@ -3,15 +3,15 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
   },
   searchContainer: {
+    marginVertical: 20,
     paddingHorizontal: 20,
     alignSelf: 'stretch',
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 15
   },
   resultContainer: {
     marginTop: 15,

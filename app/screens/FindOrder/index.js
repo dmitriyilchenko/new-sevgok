@@ -110,8 +110,9 @@ class FindOrder extends Component {
     const { loading, foundOrder, recipientInfo, receiveLoading } = this.state;
     const showReceive = foundOrder ?.status === 'sent' && user ?.warehouse_id === recipientInfo ?.id;
 
+
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.searchContainer}>
           <OrderInput
             value={this.state.orderId}
