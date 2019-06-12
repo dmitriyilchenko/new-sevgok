@@ -98,7 +98,7 @@ class Profile extends Component {
             onPress={() => this.setState({ languageModalVisible: true })}
             style={{ position: 'absolute', right: 20, top: 15 }}
           >
-            <Icon style={{ fontSize: 25, color: '#448AFF' }} name='globe' />
+            <Icon style={{ fontSize: 25, color: '#131E43', opacity: 0.8 }} name='globe' />
           </TouchableOpacity>
         </View>
         <View style={styles.separator} />

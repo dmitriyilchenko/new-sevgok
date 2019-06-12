@@ -119,7 +119,9 @@ class Navigator {
                   text: i18n.t('tabs.notifications'),
                   textColor: 'white',
                   iconColor: 'white',
-                  selectedIconColor: 'black',
+                  fontFamily: 'OpenSans',
+                  selectedIconColor: '#131E43',
+                  selectedTextColor: '#131E43',
                   icon: require('../resourses/images/notification.png'),
                 }
               }
@@ -133,7 +135,9 @@ class Navigator {
                   text: i18n.t('tabs.create_order'),
                   textColor: 'white',
                   iconColor: 'white',
-                  selectedIconColor: 'black',
+                  fontFamily: 'OpenSans',
+                  selectedIconColor: '#131E43',
+                  selectedTextColor: '#131E43',
                   icon: require('../resourses/images/box.png'),
                 }
               }
@@ -147,7 +151,9 @@ class Navigator {
                   text: i18n.t('tabs.find_order'),
                   textColor: 'white',
                   iconColor: 'white',
-                  selectedIconColor: 'black',
+                  fontFamily: 'OpenSans',
+                  selectedIconColor: '#131E43',
+                  selectedTextColor: '#131E43',
                   icon: require('../resourses/images/search.png'),
                 }
               }
@@ -161,7 +167,9 @@ class Navigator {
                   text: i18n.t('tabs.profile'),
                   textColor: 'white',
                   iconColor: 'white',
-                  selectedIconColor: 'black',
+                  fontFamily: 'OpenSans',
+                  selectedIconColor: '#131E43',
+                  selectedTextColor: '#131E43',
                   icon: require('../resourses/images/avatar.png'),
                 }
               }
