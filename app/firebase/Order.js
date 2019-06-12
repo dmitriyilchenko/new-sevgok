@@ -1,7 +1,36 @@
+import _ from 'lodash';
 import firebase from 'firebase';
 
 
 class Order {
+
+  methodsByType = {
+    'soon': 'getSoonOrders',
+    'arrived': 'getArrivedOrders',
+    'sent': 'getSentOrders',
+  }
+
+  async getSoonOrders() {
+    const currentDay = Date.now() + 24 * 60 * 60 * 1000;
+    const ordersRef = firebase.database().ref('Orders');
+    const ordersSnapshot = await ordersRef.orderByChild('arrive_at').startAt(Date.now()).endAt(currentDay).once('value');
+
+    return _.values(ordersSnapshot.val()) || [];
+  }
+
+  async getArrivedOrders() {
+    const ordersRef = firebase.database().ref('Orders');
+    const ordersSnapshot = await ordersRef.orderByChild('arrive_at').endAt(Date.now()).once('value');
+
+    return _.values(ordersSnapshot.val()) || [];
+  }
+
+  async getSentOrders(warehouse_id = null) {
+    const ordersRef = firebase.database().ref('Orders');
+    const ordersSnapshot = await ordersRef.orderByChild('sender/id').equalTo(warehouse_id).once('value');
+
+    return _.values(ordersSnapshot.val()) || [];
+  }
 
   async getOrder(id) {
     const orderRef = firebase.database().ref(`Orders/${id}`);

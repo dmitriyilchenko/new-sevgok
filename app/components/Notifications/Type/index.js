@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
+import i18n from '../../../i18n';
 
 
 function Type(props) {
@@ -12,7 +13,7 @@ function Type(props) {
       onPress={onPress}
       style={[styles.container, disabled && styles.disabled]}
     >
-      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.label}>{i18n.t(`notification_types.${label}`)}</Text>
     </TouchableOpacity>
   );
 }

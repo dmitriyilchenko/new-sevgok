@@ -28,7 +28,6 @@ class FindOrder extends Component {
     foundOrder: null,
     senderInfo: null,
     recipientInfo: null,
-    deliveryTime: null,
     receiveLoading: false
   }
 
@@ -43,7 +42,7 @@ class FindOrder extends Component {
 
   async onSearch() {
     if (!this.state.orderId) {
-      this.setState({ foundOrder: null, senderInfo: null, recipientInfo: null, deliveryTime: null });
+      this.setState({ foundOrder: null, senderInfo: null, recipientInfo: null });
       return;
     };
 
@@ -51,26 +50,25 @@ class FindOrder extends Component {
     const foundOrder = await Order.getOrder(this.state.orderId);
 
     if (!foundOrder) {
-      this.setState({ loading: false, foundOrder: null, senderInfo: null, recipientInfo: null, deliveryTime: null });
+      this.setState({ loading: false, foundOrder: null, senderInfo: null, recipientInfo: null });
       return;
     }
 
     const { sender, destination } = foundOrder;
     const senderWarehouse = await Warehouse.getWarehouse(sender.id, sender.city_code);
     const recipientWarehouse = await Warehouse.getWarehouse(destination.id, destination.city_code);
-    const deliveryTime = (await Warehouse.getDistance(senderWarehouse.locale, recipientWarehouse.locale)).durations[0][1] * 1000;
 
     const senderInfo = { ...sender, ...senderWarehouse };
     const recipientInfo = { ...destination, ...recipientWarehouse };
 
 
-    this.setState({ foundOrder, senderInfo, recipientInfo, deliveryTime, loading: false });
+    this.setState({ foundOrder, senderInfo, recipientInfo, loading: false });
   }
 
   renderResult() {
-    const { foundOrder, senderInfo, recipientInfo, deliveryTime } = this.state;
+    const { foundOrder, senderInfo, recipientInfo } = this.state;
     const sentDate = moment(foundOrder.sent_at).format('MMM Do YYYY, H:mm');
-    const deliveryDate = moment(foundOrder.sent_at + deliveryTime).format('MMM Do YYYY, H:mm');
+    const deliveryDate = moment(foundOrder.arrive_at).format('MMM Do YYYY, H:mm');
 
     return (
       <>
@@ -144,9 +142,10 @@ class FindOrder extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps({ auth, translations }) {
   return {
-    user: auth.user
+    user: auth.user,
+    language: translations.language
   }
 }
 

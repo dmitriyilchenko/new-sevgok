@@ -73,4 +73,25 @@ export default {
     expected_delivery_time: 'Expected delivery time:',
     receive: 'Receive'
   },
+  notification_types: {
+    sent: 'sent',
+    news: 'news',
+    arrived: 'arrived',
+    soon: 'soon'
+  },
+  notifications: {
+    soon_description: {
+      start: 'Will arrive in',
+      hours: ' hours',
+      and: 'and ',
+      minutes: ' minutes',
+      at_any_moment: 'a few minutes'
+    },
+    arrived_description: {
+      just_arrived: 'Just arrived',
+      arrived: 'Arrived ',
+      hours: ' hours ago',
+    },
+    sent_description: 'Will be delivered in'
+  }
 };

@@ -1,18 +1,67 @@
-import React, { Component } from 'react';
+import moment from 'moment';
+import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
+import i18n from '../../../i18n';
+import { getOrderName } from '../../../utils/string';
 
 
-class Item extends Component {
+class Item extends PureComponent {
+
+  renderTitle() {
+    const { id, type } = this.props;
+
+    if (~['soon', 'arrived', 'sent'].indexOf(type)) {
+      return (
+        <Text style={styles.title}>{getOrderName(id)}</Text>
+      );
+    }
+
+    return null;
+  }
+
+  renderDescription() {
+    const { type, arrive_at } = this.props;
+
+    if (type === 'soon') {
+      const date = new Date(new Date(arrive_at) - new Date());
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const t = i18n.t('notifications.soon_description');
+
+      return (
+        <Text style={styles.description}>{`${t.start} ${hours ? hours + t.hours : ''} ${minutes > 10 ? t.and + minutes + t.minutes : (!hours ? t.at_any_moment : '')}`}</Text>
+      );
+    }
+
+    if (type === 'arrived') {
+      const date = new Date(new Date() - new Date(arrive_at));
+      const hours = date.getHours();
+      const t = i18n.t('notifications.arrived_description');
+
+      return (
+        <Text style={styles.description}>{hours > 2 ? (t.arrived + hours + t.hours) : t.just_arrived}</Text>
+      );
+    }
+
+    if (type === 'sent') {
+      const duration = moment.duration(new Date(arrive_at) - new Date()).humanize()
+
+      return (
+        <Text style={styles.description}>{`${i18n.t('notifications.sent_description')} ${duration}`}</Text>
+      );
+    }
+
+    return null;
+  }
 
   render() {
-    const { title, description } = this.props;
 
     return (
       <TouchableOpacity style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+        {this.renderTitle()}
+        {this.renderDescription()}
       </TouchableOpacity>
     );
   }

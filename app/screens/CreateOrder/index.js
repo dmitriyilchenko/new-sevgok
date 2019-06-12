@@ -39,7 +39,7 @@ class CreateOrder extends Component {
   async onConfirm() {
     this.setState({ sendLoading: true });
 
-    const { orderId, description, recipientWarehouse } = this.state;
+    const { orderId, description, senderWarehouse, recipientWarehouse } = this.state;
     const { user } = this.props;
     const isValid = await this.validate();
 
@@ -48,11 +48,14 @@ class CreateOrder extends Component {
       return;
     };
 
+    const deliveryTime = (await Warehouse.getDistance(senderWarehouse.locale, recipientWarehouse.locale)).durations[0][1] * 1000;
+
     const newOrder = await Order.createOrder({
       id: orderId,
       description,
       status: 'sent',
       sent_at: Date.now(),
+      arrive_at: Date.now() + deliveryTime,
       sender: {
         id: user.warehouse_id,
         city_code: user.city_code

@@ -72,4 +72,25 @@ export default {
     expected_delivery_time: 'Ожидаемое время доставки:',
     receive: 'Получить'
   },
+  notification_types: {
+    sent: 'отправленные',
+    news: 'новости',
+    arrived: 'прибывшие',
+    soon: 'скоро'
+  },
+  notifications: {
+    soon_description: {
+      start: 'Будет получен через',
+      hours: ' часов',
+      and: 'и ',
+      minutes: ' минуты',
+      at_any_moment: 'пару минут'
+    },
+    arrived_description: {
+      just_arrived: 'Только прибыл',
+      arrived: 'Прибыл ',
+      hours: ' часов назад',
+    },
+    sent_description: 'Будет доставлен через'
+  }
 };

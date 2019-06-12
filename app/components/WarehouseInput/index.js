@@ -56,7 +56,7 @@ class WarehouseInput extends Component {
     const warehouses = [];
 
     for (let id in warehousesObj) {
-      warehouses.push({ id, name: `${firstUpperCase(i18n.t('warehouse'))} #${warehousesObj[id].number}` })
+      warehouses.push({ id, locale: warehousesObj[id].locale, name: `${firstUpperCase(i18n.t('warehouse'))} #${warehousesObj[id].number}` })
     }
 
     this.setState({ warehouses, warehouseLoading: false });
