@@ -36,6 +36,16 @@ class CreateOrder extends Component {
     this.setState({ senderWarehouse });
   }
 
+  async componentDidUpdate(prevProps) {
+    const { user } = this.props;
+
+    if (user.warehouse_id !== prevProps.warehouse_id) {
+      const senderWarehouse = await Warehouse.getWarehouse(user.warehouse_id, user.city_code);
+
+      this.setState({ senderWarehouse });
+    }
+  }
+
   async onConfirm() {
     this.setState({ sendLoading: true });
 
@@ -150,6 +160,7 @@ class CreateOrder extends Component {
 function mapStateToProps({ auth, translations }) {
   return {
     user: auth.user,
+    userWarehouse: auth.user.warehouse_id,
     language: translations.language
   };
 }

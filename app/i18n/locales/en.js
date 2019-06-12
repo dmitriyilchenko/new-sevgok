@@ -92,6 +92,8 @@ export default {
       arrived: 'Arrived ',
       hours: ' hours ago',
     },
-    sent_description: 'Will be delivered in'
+    sent_description: 'Will be delivered in',
+    received_description: 'Received',
+    not_arrived_description: 'Arrived but not yet accepted'
   }
 };

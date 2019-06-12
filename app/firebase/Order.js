@@ -10,19 +10,23 @@ class Order {
     'sent': 'getSentOrders',
   }
 
-  async getSoonOrders() {
+  async getSoonOrders(warehouse_id = null) {
     const currentDay = Date.now() + 24 * 60 * 60 * 1000;
     const ordersRef = firebase.database().ref('Orders');
-    const ordersSnapshot = await ordersRef.orderByChild('arrive_at').startAt(Date.now()).endAt(currentDay).once('value');
+    const ordersSnapshot = await ordersRef.orderByChild('destination/id').equalTo(warehouse_id).limitToFirst(100).once('value');
+    const orders = _.values(ordersSnapshot.val());
+    const filtred = _.filter(orders, ({ arrive_at, status }) => status === 'sent' && arrive_at > Date.now() && arrive_at < currentDay);
 
-    return _.values(ordersSnapshot.val()) || [];
+    return filtred;
   }
 
-  async getArrivedOrders() {
+  async getArrivedOrders(warehouse_id = null) {
     const ordersRef = firebase.database().ref('Orders');
-    const ordersSnapshot = await ordersRef.orderByChild('arrive_at').endAt(Date.now()).once('value');
+    const ordersSnapshot = await ordersRef.orderByChild('destination/id').equalTo(warehouse_id).limitToFirst(100).once('value');
+    const orders = _.values(ordersSnapshot.val());
+    const filtred = _.filter(orders, ({ arrive_at, status }) => status === 'sent' && arrive_at < Date.now());
 
-    return _.values(ordersSnapshot.val()) || [];
+    return filtred;
   }
 
   async getSentOrders(warehouse_id = null) {

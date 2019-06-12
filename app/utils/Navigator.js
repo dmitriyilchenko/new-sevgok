@@ -111,20 +111,24 @@ class Navigator {
       root: {
         bottomTabs: {
           children: [{
-            component: {
-              id: 'Notifications',
-              name: 'Notifications',
-              options: {
-                bottomTab: {
-                  text: i18n.t('tabs.notifications'),
-                  textColor: 'white',
-                  iconColor: 'white',
-                  fontFamily: 'OpenSans',
-                  selectedIconColor: '#131E43',
-                  selectedTextColor: '#131E43',
-                  icon: require('../resourses/images/notification.png'),
+            stack: {
+              children: [{
+                component: {
+                  id: 'Notifications',
+                  name: 'Notifications',
+                  options: {
+                    bottomTab: {
+                      text: i18n.t('tabs.notifications'),
+                      textColor: 'white',
+                      iconColor: 'white',
+                      fontFamily: 'OpenSans',
+                      selectedIconColor: '#131E43',
+                      selectedTextColor: '#131E43',
+                      icon: require('../resourses/images/notification.png'),
+                    }
+                  }
                 }
-              }
+              }]
             }
           }, {
             component: {

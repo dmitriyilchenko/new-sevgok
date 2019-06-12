@@ -80,7 +80,7 @@ export default {
   },
   notifications: {
     soon_description: {
-      start: 'Будет получен через',
+      start: 'Прибудет через',
       hours: ' часов',
       and: 'и ',
       minutes: ' минуты',
@@ -91,6 +91,8 @@ export default {
       arrived: 'Прибыл ',
       hours: ' часов назад',
     },
-    sent_description: 'Будет доставлен через'
+    sent_description: 'Будет доставлен через',
+    received_description: 'Получен',
+    not_arrived_description: 'Доставлен, но не еще не принят'
   }
 };
