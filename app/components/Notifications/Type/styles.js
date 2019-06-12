@@ -13,6 +13,7 @@ export default StyleSheet.create({
     backgroundColor: '#BDBDBD',
   },
   label: {
-    color: 'white'
+    color: 'white',
+    fontFamily: 'OpenSans',
   }
 });

@@ -89,7 +89,7 @@ class WarehouseInput extends Component {
         style={styles.itemContainer}
         onPress={() => this.setState({ step: 'warehouse', selectedCity: code })}
       >
-        <Text>{name}</Text>
+        <Text style={styles.itemLabel}>{name}</Text>
       </TouchableOpacity>
     );
   }
@@ -102,7 +102,7 @@ class WarehouseInput extends Component {
         onPress={() => this.onValueChange(item)}
         style={styles.itemContainer}
       >
-        <Text>{name}</Text>
+        <Text style={styles.itemLabel}>{name}</Text>
       </TouchableOpacity>
     );
   }

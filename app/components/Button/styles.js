@@ -11,6 +11,7 @@ export default StyleSheet.create({
     elevation: 3,
   },
   label: {
-    color: 'white'
+    color: 'white',
+    fontFamily: 'OpenSans',
   }
 });

@@ -14,10 +14,12 @@ export default StyleSheet.create({
     marginBottom: 20
   },
   title: {
+    fontFamily: 'OpenSans',
     marginBottom: 5,
     textAlignVertical: 'center'
   },
   input: {
+    fontFamily: 'OpenSans',
     padding: 5,
     height: 50,
     width: 200,

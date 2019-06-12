@@ -43,6 +43,8 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>

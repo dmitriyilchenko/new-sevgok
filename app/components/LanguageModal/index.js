@@ -40,7 +40,7 @@ class LanguageModal extends Component {
     return (
       <View style={styles.itemContainer}>
         <TouchableOpacity onPress={() => this.onChange(item)}>
-          <Text>{i18n.t(item)}</Text>
+          <Text style={styles.itemLabel}>{i18n.t(item)}</Text>
         </TouchableOpacity>
       </View>
     );

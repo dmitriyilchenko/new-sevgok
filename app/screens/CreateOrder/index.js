@@ -126,7 +126,7 @@ class CreateOrder extends Component {
               value={this.state.orderId}
               onValueChange={(orderId) => this.setState({ orderId })}
             />
-            <Text style={styles.senderInfoLabel}>{i18n.t('create_order.order_info.description')}</Text>
+            <Text style={styles.senderInfoTitle}>{i18n.t('create_order.order_info.description')}</Text>
             <TextInput
               multiline={true}
               value={this.state.description}

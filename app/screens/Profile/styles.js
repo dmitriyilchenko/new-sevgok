@@ -13,10 +13,15 @@ export default StyleSheet.create({
   },
   fullname: {
     fontSize: 25,
+    color: '#131E43',
+    fontFamily: 'OpenSans',
   },
   warehouse: {
     fontSize: 15,
-    marginBottom: 10
+    marginBottom: 10,
+    color: '#131E43',
+    opacity: 0.5,
+    fontFamily: 'OpenSans',
   },
   updateInfoContainer: {
     marginVertical: 20,
@@ -30,6 +35,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   updateItemLabel: {
+    fontFamily: 'OpenSans',
+    color: '#131E43',
     maxWidth: '50%',
     fontSize: 16
   },

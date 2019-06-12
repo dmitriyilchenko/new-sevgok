@@ -20,16 +20,26 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   orderName: {
-    fontSize: 20
+    fontSize: 20,
+    color: '#131E43',
+    fontFamily: 'OpenSans-Semibold',
   },
   descriptionContainer: {
     marginVertical: 10,
     maxHeight: 100
   },
+  descriptionLabel: {
+    color: '#131E43',
+    fontFamily: 'OpenSans',
+  },
   routeContainer: {
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  routeLabel: {
+    color: '#131E43',
+    fontFamily: 'OpenSans',
   },
   routeIcon: {
     color: '#616161',
@@ -43,10 +53,12 @@ export default StyleSheet.create({
   detailLabel: {
     marginVertical: 3,
     fontSize: 15,
-    color: '#212121'
+    color: '#131E43',
+    fontFamily: 'OpenSans',
   },
   detailValue: {
-    color: '#FF1744'
+    color: '#FF1744',
+    fontFamily: 'OpenSans',
   },
   receive: {
     width: '100%',

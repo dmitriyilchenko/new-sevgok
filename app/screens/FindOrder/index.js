@@ -78,13 +78,13 @@ class FindOrder extends Component {
         {
           !!foundOrder.description &&
           <ScrollView style={styles.descriptionContainer}>
-            <Text>{foundOrder.description}</Text>
+            <Text style={styles.descriptionLabel}>{foundOrder.description}</Text>
           </ScrollView>
         }
         <View style={styles.routeContainer}>
-          <Text>{getWarehouseName(senderInfo, senderInfo.city_code)}</Text>
+          <Text style={styles.routeLabel}>{getWarehouseName(senderInfo, senderInfo.city_code)}</Text>
           <Icon style={styles.routeIcon} name='long-arrow-right' />
-          <Text>{getWarehouseName(recipientInfo, recipientInfo.city_code)}</Text>
+          <Text style={styles.routeLabel}>{getWarehouseName(recipientInfo, recipientInfo.city_code)}</Text>
         </View>
         <View style={styles.separator} />
         <View style={styles.detailsContainer}>

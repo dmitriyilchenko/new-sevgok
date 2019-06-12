@@ -32,11 +32,17 @@ export default StyleSheet.create({
     fontSize: 18,
     marginVertical: 20,
     textAlign: 'center',
+    fontFamily: 'OpenSans',
+    color: '#131E43',
   },
   itemContainer: {
     marginVertical: 5,
     width: 250,
     alignItems: 'center'
+  },
+  itemLabel: {
+    fontFamily: 'OpenSans',
+    color: '#131E43',
   },
   separator: {
     height: 1,

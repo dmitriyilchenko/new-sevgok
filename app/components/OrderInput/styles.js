@@ -6,7 +6,7 @@ export default StyleSheet.create({
     padding: 5,
     height: 50,
     borderWidth: 1,
-    borderColor: '#607D8B',
+    borderColor: 'rgba(19,30,67, 0.5)',
     justifyContent: 'center',
   },
   iconContainer: {

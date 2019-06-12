@@ -7,13 +7,14 @@ export default StyleSheet.create({
     width: 200,
     borderWidth: 1,
     marginBottom: 15,
-    borderColor: '#607D8B',
+    borderColor: 'rgba(19,30,67, 0.5)',
     justifyContent: 'center',
   },
   label: {
-
+    fontFamily: 'OpenSans',
   },
   placeholder: {
+    fontFamily: 'OpenSans',
     color: '#BDBDBD'
   },
   findIconContainer: {
@@ -30,13 +31,14 @@ export default StyleSheet.create({
     marginBottom: 10
   },
   input: {
+    fontFamily: 'OpenSans',
     padding: 5,
     height: 30,
     width: '100%',
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: 10,
-    borderColor: '#607D8B',
+    borderColor: 'rgba(19,30,67, 0.5)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -51,9 +53,13 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   selectedCity: {
+    fontFamily: 'OpenSans',
     fontSize: 15,
     marginRight: 5,
     color: '#FF1744'
+  },
+  itemLabel: {
+    fontFamily: 'OpenSans',
   },
   separator: {
     height: 1,

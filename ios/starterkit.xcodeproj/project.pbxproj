@@ -61,6 +61,8 @@
 		CE18DE1A6179468AA5C60004 /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B5ED8B1F747FB945B251A /* libAppCenterReactNative.a */; };
 		E90E230A23054317821BC9E6 /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 227690CC51924ADE8F0448D2 /* libAppCenterReactNativeAnalytics.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
+		FA4F791822B0F441002F7071 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F78EB22B0F441002F7071 /* OpenSans-Regular.ttf */; };
+		FA4F791922B0F441002F7071 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F791722B0F441002F7071 /* OpenSans-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -423,6 +425,8 @@
 		DE16BEA0DE934CBEAFC38310 /* AppCenterReactNativePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativePush.xcodeproj; path = "../node_modules/appcenter-push/ios/AppCenterReactNativePush.xcodeproj"; sourceTree = "<group>"; };
 		EC9DB56EA4C47261F1C16BEE /* Pods-starterkitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starterkitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-starterkitTests/Pods-starterkitTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FA4F78EB22B0F441002F7071 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../app/resourses/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		FA4F791722B0F441002F7071 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../../app/resourses/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -636,6 +640,8 @@
 		7E27D479228D66DE0093A04B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F78EB22B0F441002F7071 /* OpenSans-Regular.ttf */,
+				FA4F791722B0F441002F7071 /* OpenSans-Semibold.ttf */,
 				7E27D47A228D66DE0093A04B /* AntDesign.ttf */,
 				7E27D47B228D66DE0093A04B /* Entypo.ttf */,
 				7E27D47C228D66DE0093A04B /* EvilIcons.ttf */,
@@ -1193,10 +1199,12 @@
 				7E517092228C3D1B007F0F4B /* (null) in Resources */,
 				7E27D492228D66DF0093A04B /* Ionicons.ttf in Resources */,
 				7E27D48E228D66DF0093A04B /* FontAwesome5_Brands.ttf in Resources */,
+				FA4F791822B0F441002F7071 /* OpenSans-Regular.ttf in Resources */,
 				7E27D493228D66DF0093A04B /* MaterialCommunityIcons.ttf in Resources */,
 				7E517091228C3D1B007F0F4B /* (null) in Resources */,
 				7E27D491228D66DF0093A04B /* Foundation.ttf in Resources */,
 				7E27D48B228D66DF0093A04B /* EvilIcons.ttf in Resources */,
+				FA4F791922B0F441002F7071 /* OpenSans-Semibold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				7E27D48C228D66DF0093A04B /* Feather.ttf in Resources */,
 				7E51709A228C3D1B007F0F4B /* (null) in Resources */,

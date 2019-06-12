@@ -12,14 +12,18 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
   senderInfoTitle: {
-    fontSize: 20,
+    fontFamily: 'OpenSans',
+    color: '#131E43',
+    fontSize: 17,
     marginBottom: 10
   },
   senderInfoLabel: {
     fontSize: 15,
-    color: '#212121'
+    color: '#131E43',
+    fontFamily: 'OpenSans',
   },
   senderInfoValue: {
+    fontFamily: 'OpenSans',
     color: '#FF1744'
   },
   recipientInfoContainer: {
@@ -34,8 +38,10 @@ export default StyleSheet.create({
   },
   orderInfoDescription: {
     padding: 5,
-    marginVertical: 10,
+    marginTop: 5,
     borderWidth: 1,
+    marginBottom: 10,
+    borderColor: 'rgba(19,30,67, 0.5)',
     height: 100
   },
   separator: {
@@ -44,10 +50,12 @@ export default StyleSheet.create({
     backgroundColor: '#E0E0E0'
   },
   clear: {
+    fontFamily: 'OpenSans',
     marginHorizontal: 10,
     backgroundColor: '#FF1744'
   },
   send: {
+    fontFamily: 'OpenSans',
     marginHorizontal: 10,
   },
 });
