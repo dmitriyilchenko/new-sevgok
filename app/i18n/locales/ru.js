@@ -70,7 +70,9 @@ export default {
     status: 'Статус:',
     sent_at: 'Отправлено:',
     expected_delivery_time: 'Ожидаемое время доставки:',
-    receive: 'Получить'
+    receive: 'Получить',
+    sent: 'отправлен',
+    received: 'получен'
   },
   notification_types: {
     sent: 'отправленные',

@@ -88,7 +88,7 @@ class FindOrder extends Component {
         <View style={styles.detailsContainer}>
           <Text style={styles.detailLabel}>
             {i18n.t('find_order.status')}
-            <Text style={styles.detailValue}> {foundOrder.status}</Text>
+            <Text style={styles.detailValue}> {i18n.t(`find_order.${foundOrder.status}`)}</Text>
           </Text>
           <Text style={styles.detailLabel}>
             {i18n.t('find_order.sent_at')}
@@ -114,6 +114,7 @@ class FindOrder extends Component {
         <View style={styles.searchContainer}>
           <OrderInput
             value={this.state.orderId}
+            onCode={(orderId) => { this.setState({ orderId }); this.onSearch() }}
             onValueChange={(orderId) => this.setState({ orderId })}
             style={{ flex: 1, marginRight: 10, maxWidth: 10000 }}
           />

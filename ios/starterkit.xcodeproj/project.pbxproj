@@ -61,6 +61,7 @@
 		CE18DE1A6179468AA5C60004 /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B5ED8B1F747FB945B251A /* libAppCenterReactNative.a */; };
 		E90E230A23054317821BC9E6 /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 227690CC51924ADE8F0448D2 /* libAppCenterReactNativeAnalytics.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
+		FA18E65522B6A9D400DE16FA /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA18E65422B6A99C00DE16FA /* libRNCamera.a */; };
 		FA4F791822B0F441002F7071 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F78EB22B0F441002F7071 /* OpenSans-Regular.ttf */; };
 		FA4F791922B0F441002F7071 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F791722B0F441002F7071 /* OpenSans-Semibold.ttf */; };
 /* End PBXBuildFile section */
@@ -367,6 +368,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		FA18E65322B6A99C00DE16FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA18E64F22B6A99C00DE16FA /* RNCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RNCamera;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -425,6 +433,7 @@
 		DE16BEA0DE934CBEAFC38310 /* AppCenterReactNativePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativePush.xcodeproj; path = "../node_modules/appcenter-push/ios/AppCenterReactNativePush.xcodeproj"; sourceTree = "<group>"; };
 		EC9DB56EA4C47261F1C16BEE /* Pods-starterkitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starterkitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-starterkitTests/Pods-starterkitTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FA18E64F22B6A99C00DE16FA /* RNCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
 		FA4F78EB22B0F441002F7071 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../app/resourses/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		FA4F791722B0F441002F7071 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../../app/resourses/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -434,6 +443,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA18E65522B6A9D400DE16FA /* libRNCamera.a in Frameworks */,
 				029FDF46228C619200B9D1D8 /* libReact.a in Frameworks */,
 				7E516FB1228AF649007F0F4B /* libReactNativeNavigation.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
@@ -673,6 +683,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FA18E64F22B6A99C00DE16FA /* RNCamera.xcodeproj */,
 				7E516FA8228AF639007F0F4B /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -734,6 +745,14 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA18E65022B6A99C00DE16FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA18E65422B6A99C00DE16FA /* libRNCamera.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -867,6 +886,10 @@
 				{
 					ProductGroup = 7E516FA9228AF639007F0F4B /* Products */;
 					ProjectRef = 7E516FA8228AF639007F0F4B /* ReactNativeNavigation.xcodeproj */;
+				},
+				{
+					ProductGroup = FA18E65022B6A99C00DE16FA /* Products */;
+					ProjectRef = FA18E64F22B6A99C00DE16FA /* RNCamera.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1176,6 +1199,13 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA18E65422B6A99C00DE16FA /* libRNCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCamera.a;
+			remoteRef = FA18E65322B6A99C00DE16FA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

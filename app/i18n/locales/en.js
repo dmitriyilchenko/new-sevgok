@@ -71,7 +71,9 @@ export default {
     status: 'Status:',
     sent_at: 'Sent at:',
     expected_delivery_time: 'Expected delivery time:',
-    receive: 'Receive'
+    receive: 'Receive',
+    sent: 'sent',
+    received: 'received'
   },
   notification_types: {
     sent: 'sent',

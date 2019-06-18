@@ -90,7 +90,7 @@ class Order extends Component {
         <View style={styles.detailsContainer}>
           <Text style={styles.detailLabel}>
             {i18n.t('find_order.status')}
-            <Text style={styles.detailValue}> {foundOrder.status}</Text>
+            <Text style={styles.detailValue}> {i18n.t(`find_order.${foundOrder.status}`)}</Text>
           </Text>
           <Text style={styles.detailLabel}>
             {i18n.t('find_order.sent_at')}

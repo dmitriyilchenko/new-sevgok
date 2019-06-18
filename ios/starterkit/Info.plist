@@ -39,8 +39,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow for QR scanning</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow for QR scanning</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Semibold.ttf</string>
