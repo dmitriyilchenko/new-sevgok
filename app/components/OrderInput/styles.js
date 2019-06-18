@@ -10,6 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   iconContainer: {
+    padding: 10,
     right: 5,
     fontSize: 20,
     position: 'absolute'

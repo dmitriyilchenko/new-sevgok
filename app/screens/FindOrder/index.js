@@ -114,7 +114,7 @@ class FindOrder extends Component {
         <View style={styles.searchContainer}>
           <OrderInput
             value={this.state.orderId}
-            onCode={(orderId) => { this.setState({ orderId }); this.onSearch() }}
+            onCode={({ orderId }) => { this.setState({ orderId }, () => this.onSearch()) }}
             onValueChange={(orderId) => this.setState({ orderId })}
             style={{ flex: 1, marginRight: 10, maxWidth: 10000 }}
           />

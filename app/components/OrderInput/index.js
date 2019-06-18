@@ -12,7 +12,8 @@ class OrderInput extends Component {
 
   state = {
     modalVisible: false,
-    cameraLoading: false
+    cameraLoading: false,
+    codeReaded: false
   };
 
   onChangeValue(value) {
@@ -20,18 +21,18 @@ class OrderInput extends Component {
   }
 
   onCode(jsonData) {
+    if (this.state.codeReaded) return;
+
     try {
       this.setState({ cameraLoading: true });
       const data = JSON.parse(jsonData);
 
-      if (data.type === 'number') {
-        this.setState({ modalVisible: false, cameraLoading: false });
+      this.setState({ modalVisible: false, cameraLoading: false, codeReaded: true });
 
-        if (_.isFunction(this.props.onCode))
-          this.props.onCode(data.number);
-        else
-          this.onChangeValue(data.number);
-      }
+      if (_.isFunction(this.props.onCode))
+        this.props.onCode(data);
+      else
+        this.onChangeValue(data.number);
 
     } catch (err) {
       this.setState({ cameraLoading: false });
@@ -84,7 +85,7 @@ class OrderInput extends Component {
         />
         <TouchableOpacity
           style={styles.iconContainer}
-          onPress={() => this.setState({ modalVisible: true })}
+          onPress={() => this.setState({ codeReaded: false, modalVisible: true })}
         >
           <AwesomeIcon name='qrcode' style={styles.icon} />
         </TouchableOpacity>

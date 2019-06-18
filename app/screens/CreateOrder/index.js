@@ -89,6 +89,13 @@ class CreateOrder extends Component {
     this.setState({ orderId: '', recipientWarehouse: null });
   }
 
+  async onOrderCode(data) {
+    const { orderId, description, recipient } = data;
+    const recipientWarehouse = await this.recipientInput.setValue(recipient);
+
+    this.setState({ orderId, description, recipientWarehouse });
+  }
+
   async validate() {
     const { user } = this.props;
     const { recipientWarehouse, orderId } = this.state;
@@ -137,6 +144,7 @@ class CreateOrder extends Component {
               width={200}
               style={{ marginBottom: 15 }}
               value={this.state.orderId}
+              onCode={(data) => this.onOrderCode(data)}
               onValueChange={(orderId) => this.setState({ orderId })}
             />
             <Text style={styles.senderInfoTitle}>{i18n.t('create_order.order_info.description')}</Text>

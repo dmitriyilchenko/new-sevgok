@@ -77,6 +77,14 @@ class WarehouseInput extends Component {
     this.setState({ [field]: value });
   }
 
+  async setValue({ id, city_code }) {
+    const warehouse = await Warehouse.getWarehouse(id, city_code);
+    warehouse.name = `${firstUpperCase(i18n.t('warehouse'))} #${warehouse.number}`;
+
+    this.setState({ modalVisible: false, value: { ...warehouse, city: city_code } });
+    return { ...warehouse, id, city_code };
+  }
+
   renderSeparator() {
     return <View style={styles.separator} />
   }
